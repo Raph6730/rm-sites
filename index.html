@@ -1,0 +1,553 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>RM Sites</title>
+<meta name="description" content="RM Sites conçoit sur mesure les sites internet des commerces et artisans de Strasbourg et des alentours, puis en assure le suivi et la maintenance.">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#1B4535">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 64 64%22%3E%3Crect width=%2264%22 height=%2264%22 fill=%22%231B4535%22/%3E%3Ctext x=%2232%22 y=%2242%22 font-family=%22Georgia,serif%22 font-size=%2228%22 fill=%22%23D4B46E%22 text-anchor=%22middle%22%3ERM%3C/text%3E%3C/svg%3E">
+<style>
+@font-face{font-family:"Cormorant Garamond";font-style:normal;font-weight:400;font-display:swap;src:url(fonts/cormorant-garamond-latin-400-normal.woff2) format("woff2")}
+@font-face{font-family:"Cormorant Garamond";font-style:italic;font-weight:400;font-display:swap;src:url(fonts/cormorant-garamond-latin-400-italic.woff2) format("woff2")}
+@font-face{font-family:"Cormorant Garamond";font-style:normal;font-weight:500;font-display:swap;src:url(fonts/cormorant-garamond-latin-500-normal.woff2) format("woff2")}
+@font-face{font-family:"Cormorant Garamond";font-style:italic;font-weight:500;font-display:swap;src:url(fonts/cormorant-garamond-latin-500-italic.woff2) format("woff2")}
+@font-face{font-family:"Hanken Grotesk";font-style:normal;font-weight:300;font-display:swap;src:url(fonts/hanken-grotesk-latin-300-normal.woff2) format("woff2")}
+@font-face{font-family:"Hanken Grotesk";font-style:normal;font-weight:400;font-display:swap;src:url(fonts/hanken-grotesk-latin-400-normal.woff2) format("woff2")}
+@font-face{font-family:"Hanken Grotesk";font-style:normal;font-weight:500;font-display:swap;src:url(fonts/hanken-grotesk-latin-500-normal.woff2) format("woff2")}
+@font-face{font-family:"Hanken Grotesk";font-style:normal;font-weight:600;font-display:swap;src:url(fonts/hanken-grotesk-latin-600-normal.woff2) format("woff2")}
+:root{color-scheme:light;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+html{scroll-padding-top:80px}
+body{margin:0}
+img{max-width:100%}
+[hidden]{display:none!important}
+/* Layout : maison de qualité — beaucoup d'air, grande serif fine, filets, sections composées différemment ; vert profond en bandeaux, vert pâle en fonds */
+:root{
+  --bg:#FBFCFB; --tint:#EEF3EF; --ink:#18221D; --muted:#5E6A63; --line:#D9E1DB;
+  --green:#1B4535; --green-ink:#F4F7F5; --green-soft:#A9C3B4;
+  --gold:#957233; --gold-soft:#D4B46E; --acc2:var(--gold); --acc2-on:var(--gold-soft);
+  --serif:"Cormorant Garamond","Cormorant",Georgia,"Times New Roman",serif;
+  --sans:"Hanken Grotesk",ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#101613; --tint:#16201B; --ink:#E7EDE9; --muted:#9EAAA3; --line:#2A3630;
+  --green:#0F2A20; --green-ink:#E7EFEA; --green-soft:#8DBBA2; --acc2:#D4B46E; --acc2-on:#D4B46E; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#101613; --tint:#16201B; --ink:#E7EDE9; --muted:#9EAAA3; --line:#2A3630;
+  --green:#0F2A20; --green-ink:#E7EFEA; --green-soft:#8DBBA2; --acc2:#D4B46E; --acc2-on:#D4B46E; color-scheme:dark}
+
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-weight:400;font-size:1.0625rem;line-height:1.75;-webkit-font-smoothing:antialiased}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--bg)}
+h1,h2,h3{margin:0;font-family:var(--serif);font-weight:400;line-height:1.08;text-wrap:balance;letter-spacing:-.005em}
+h1 em,h2 em{font-style:italic;color:var(--acc2)}
+p{margin:0}
+a{color:inherit}
+:focus-visible{outline:1px solid var(--green);outline-offset:4px}
+.wrap{max-width:1120px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+section{padding-block:clamp(72px,11vw,140px)}
+.kicker{font-size:.74rem;font-weight:500;letter-spacing:.24em;text-transform:uppercase;color:var(--muted)}
+.rule{width:56px;height:1px;background:var(--green);border:0;margin:0}
+.center{text-align:center}
+.center .rule{margin-inline:auto}
+.todo{font-style:italic;opacity:.7}
+
+/* En-tête */
+.bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:9;background:var(--bg);border-bottom:1px solid var(--line)}
+.bar .wrap{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:16px;padding-block:18px}
+.bar nav{display:flex;gap:28px;font-size:.82rem;letter-spacing:.08em;text-transform:uppercase}
+.bar nav a{text-decoration:none;color:var(--muted);transition:color .2s}
+.bar nav a:hover{color:var(--ink)}
+.bar nav.r{justify-content:flex-end}
+.brand{font-family:var(--serif);font-size:1.7rem;letter-spacing:.32em;text-transform:uppercase;text-decoration:none;padding-left:.32em}
+@media (max-width:860px){.bar .wrap{grid-template-columns:1fr auto}.bar nav.l{display:none}.bar nav.r a:not(.cta-link){display:none}.brand{justify-self:start;padding-left:0;font-size:1.4rem}}
+.cta-link{color:var(--green)!important;border-bottom:1px solid var(--green);padding-bottom:2px}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:15px 30px;font-family:var(--sans);font-size:.82rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase;text-decoration:none;border:1px solid var(--green);transition:background .25s,color .25s;cursor:pointer}
+.btn-fill{background:var(--green);color:var(--green-ink)}
+.btn-fill:hover{background:transparent;color:var(--green)}
+.btn-line{background:transparent;color:var(--green)}
+.btn-line:hover{background:var(--green);color:var(--green-ink)}
+
+/* Accroche */
+.hero{padding-block:clamp(80px,13vw,170px) clamp(72px,10vw,130px)}
+.hero h1{font-size:clamp(2.7rem,7.4vw,6rem);max-width:15ch;margin:28px auto 0}
+.hero .lead{max-width:56ch;margin:30px auto 0;color:var(--muted);font-size:1.12rem;font-weight:300}
+.hero .actions{display:flex;flex-wrap:wrap;gap:14px;justify-content:center;margin-top:44px}
+.hero .place{margin-top:56px;font-family:var(--serif);font-style:italic;font-size:1.15rem;color:var(--muted)}
+
+/* Approche : trois colonnes séparées par des filets */
+.pillars{display:grid;grid-template-columns:repeat(3,1fr);margin-top:clamp(48px,7vw,80px);border-top:1px solid var(--line)}
+.pillar{padding:40px clamp(20px,3vw,40px) 8px;display:grid;gap:16px;align-content:start}
+.pillar + .pillar{border-left:1px solid var(--line)}
+.pillar:first-child{padding-left:0}
+.pillar:last-child{padding-right:0}
+.pillar h3{font-size:clamp(1.7rem,2.6vw,2.1rem)}
+.pillar p{color:var(--muted);font-weight:300}
+.pillar .em{font-family:var(--serif);font-style:italic;font-size:1.15rem;color:var(--acc2)}
+@media (max-width:860px){.pillars{grid-template-columns:1fr}.pillar,.pillar:first-child,.pillar:last-child{padding:32px 0 8px}.pillar + .pillar{border-left:0;border-top:1px solid var(--line)}}
+.split-head{display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px,5vw,80px);align-items:end}
+.split-head h2{font-size:clamp(2.2rem,5vw,3.8rem)}
+.split-head p{color:var(--muted);font-weight:300;max-width:46ch}
+@media (max-width:860px){.split-head{grid-template-columns:1fr}}
+
+/* Bandeau vert */
+.green{background:var(--green);color:var(--green-ink)}
+.green .kicker{color:var(--acc2-on)}
+.green .rule{background:var(--green-soft)}
+.statement{font-family:var(--serif);font-size:clamp(2rem,4.6vw,3.5rem);line-height:1.15;max-width:22ch;margin:28px auto 0}
+.statement em,.green h2 em{color:var(--acc2-on)}
+.promises{display:grid;grid-template-columns:repeat(4,1fr);margin-top:clamp(56px,8vw,88px);border-top:1px solid color-mix(in srgb,var(--green-ink) 22%,transparent)}
+.promise{padding:30px 20px 0;display:grid;gap:6px;text-align:center}
+.promise + .promise{border-left:1px solid color-mix(in srgb,var(--green-ink) 22%,transparent)}
+.promise strong{color:var(--acc2-on);font-family:var(--serif);font-weight:400;font-size:clamp(2.2rem,4vw,3rem);line-height:1;font-variant-numeric:lining-nums}
+.promise span{font-size:.9rem;font-weight:300;opacity:.82}
+@media (max-width:760px){.promises{grid-template-columns:1fr 1fr}.promise:nth-child(3){border-left:0}.promise:nth-child(n+3){margin-top:24px}}
+
+/* Réalisations */
+.tint{background:var(--tint)}
+.works{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(28px,4vw,48px) clamp(20px,3vw,36px);margin-top:clamp(48px,7vw,80px)}
+@media (max-width:900px){.works{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:540px){.works{grid-template-columns:1fr}}
+.work{text-decoration:none;display:grid;gap:16px}
+.frame{aspect-ratio:4/3;max-width:100%;background:var(--bg);border:1px solid var(--line);display:flex;align-items:flex-end;justify-content:center;overflow:hidden;padding-top:28px;transition:border-color .3s}
+.work:hover .frame{border-color:var(--green)}
+.scr{width:46%;height:100%;background:#FFFFFF;border:1px solid #DDE3DF;border-bottom:0;border-radius:12px 12px 0 0;display:flex;flex-direction:column;overflow:hidden;transition:transform .4s ease}
+.work:hover .scr{transform:translateY(-6px)}
+.scr .hd{height:42%;padding:10px;display:flex;flex-direction:column;justify-content:flex-end;gap:4px}
+.scr .hd i{display:block;height:6px;background:rgba(255,255,255,.88);border-radius:2px}
+.scr .hd i:first-child{width:72%;height:8px}
+.scr .hd i:last-child{width:44%}
+.scr .ln{padding:10px;display:grid;gap:7px}
+.scr .ln i{height:5px;border-radius:2px;background:#E2E7E4}
+.scr .ln i:nth-child(2){width:70%}
+.work .meta{display:grid;gap:2px}
+.work h3{font-size:1.55rem}
+.work p{color:var(--muted);font-size:.95rem;font-weight:300}
+.work .go{font-size:.76rem;letter-spacing:.16em;text-transform:uppercase;color:var(--acc2);margin-top:6px}
+.work.blank .frame{align-items:center;padding:0}
+.work.blank .frame span{font-family:var(--serif);font-style:italic;font-size:1.4rem;color:var(--muted)}
+.fineprint{margin-top:44px;font-size:.85rem;color:var(--muted);font-weight:300}
+
+/* Tarifs */
+.prices{display:grid;grid-template-columns:1fr 1fr;margin-top:clamp(48px,7vw,80px);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.offer{padding:clamp(32px,5vw,56px) clamp(20px,4vw,56px);display:grid;gap:18px;align-content:start}
+.offer:first-child{padding-left:0}
+.offer:last-child{padding-right:0}
+.offer + .offer{border-left:1px solid var(--line)}
+@media (max-width:820px){.prices{grid-template-columns:1fr}.offer,.offer:first-child,.offer:last-child{padding:36px 0}.offer + .offer{border-left:0;border-top:1px solid var(--line)}}
+.offer h3{font-size:2.3rem}
+.offer .sub{color:var(--muted);font-weight:300}
+.amount{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap}
+.amount strong{font-family:var(--serif);font-weight:400;font-size:clamp(3.2rem,6vw,4.4rem);line-height:1}
+.amount s{color:var(--muted);font-size:1rem}
+.amount small{flex-basis:100%;font-size:.76rem;letter-spacing:.16em;text-transform:uppercase;color:var(--acc2)}
+.incl{display:grid;border-top:1px solid var(--line)}
+.incl span{padding:11px 0;border-bottom:1px solid var(--line);font-size:.97rem;font-weight:300}
+.offer .when{font-family:var(--serif);font-style:italic;font-size:1.15rem;color:var(--muted)}
+.addons{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(20px,4vw,48px);margin-top:clamp(40px,6vw,64px)}
+@media (max-width:820px){.addons{grid-template-columns:1fr}}
+.addon{display:grid;gap:8px;align-content:start}
+.addon .t{display:flex;justify-content:space-between;align-items:baseline;gap:12px;border-bottom:1px solid var(--line);padding-bottom:10px}
+.addon h3{font-size:1.45rem}
+.addon .t span{font-family:var(--serif);font-size:1.25rem;white-space:nowrap;color:var(--acc2)}
+.addon p{color:var(--muted);font-size:.94rem;font-weight:300}
+.compare{margin-top:clamp(40px,6vw,64px);padding:28px 0 0;border-top:1px solid var(--line);font-family:var(--serif);font-size:1.25rem;line-height:1.5;color:var(--muted);max-width:70ch}
+.compare em{color:var(--ink)}
+.legal{margin-top:22px;font-size:.84rem;color:var(--muted);font-weight:300;max-width:80ch}
+
+/* Déroulement : frise */
+.timeline{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(20px,4vw,48px);margin-top:clamp(48px,7vw,80px);position:relative}
+.timeline::before{content:"";position:absolute;left:0;right:0;top:7px;height:1px;background:var(--line)}
+.stage{position:relative;padding-top:40px;display:grid;gap:10px}
+.stage::before{content:"";position:absolute;left:0;top:0;width:15px;height:15px;border-radius:50%;background:var(--bg);border:1px solid var(--green)}
+.stage:last-child::before{background:var(--green)}
+.stage .d{font-size:.76rem;letter-spacing:.16em;text-transform:uppercase;color:var(--acc2)}
+.stage h3{font-size:1.8rem}
+.stage p{color:var(--muted);font-weight:300}
+@media (max-width:760px){.timeline{grid-template-columns:1fr;padding-left:32px}.timeline::before{left:7px;right:auto;top:0;bottom:0;width:1px;height:auto}.stage{padding-top:0}.stage::before{left:-32px;top:6px}}
+.bring{margin-top:clamp(48px,7vw,72px);font-family:var(--serif);font-size:1.25rem;line-height:1.55;max-width:68ch}
+.bring span{color:var(--muted)}
+
+/* Questions */
+.faq-one{grid-template-columns:1fr!important;max-width:780px;margin-inline:auto}
+.faq{display:grid;grid-template-columns:1fr 1fr;column-gap:clamp(24px,5vw,72px);margin-top:clamp(40px,6vw,64px)}
+@media (max-width:820px){.faq{grid-template-columns:1fr}}
+details{border-top:1px solid var(--line)}
+summary{cursor:pointer;list-style:none;padding:22px 0;font-family:var(--serif);font-size:1.35rem;line-height:1.3;display:flex;justify-content:space-between;gap:18px}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";font-family:var(--sans);font-weight:300;color:var(--green);transition:transform .25s}
+details[open] summary::after{transform:rotate(45deg)}
+details p{padding-bottom:22px;color:var(--muted);font-weight:300}
+
+/* Contact */
+.contact h2{font-size:clamp(2.6rem,6.4vw,5rem);margin:28px auto 0;max-width:14ch}
+.contact .lead{max-width:52ch;margin:26px auto 0;opacity:.85;font-weight:300}
+.coords{display:grid;grid-template-columns:repeat(2,1fr);max-width:820px;margin-inline:auto;margin-top:clamp(48px,7vw,72px);border-top:1px solid color-mix(in srgb,var(--green-ink) 22%,transparent)}
+.coord{padding:28px 16px 0;display:grid;gap:8px;justify-items:center;text-align:center;min-width:0}
+.coord + .coord{border-left:1px solid color-mix(in srgb,var(--green-ink) 22%,transparent)}
+.coord small{font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--acc2-on)}
+.coord span{font-family:var(--serif);font-size:1.5rem;line-height:1.2;overflow-wrap:anywhere}
+.copy{font-family:var(--sans);font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;background:transparent;color:var(--green-ink);border:0;border-bottom:1px solid var(--green-soft);padding:2px 0;cursor:pointer;opacity:.85}
+@media (max-width:760px){.coords{grid-template-columns:1fr}.coord + .coord{border-left:0;border-top:1px solid color-mix(in srgb,var(--green-ink) 22%,transparent);margin-top:24px}}
+
+footer{background:var(--green);color:var(--green-ink);padding-block:0 100px}
+footer .wrap{border-top:1px solid color-mix(in srgb,var(--green-ink) 22%,transparent);padding-block:28px;display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px;font-size:.82rem;opacity:.8;font-weight:300}
+@media (min-width:761px){footer{padding-block:0}}
+
+/* Teaser tarifs (accueil) */
+.teaser{padding-block:clamp(56px,8vw,96px)}
+.teaser-in{display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px,5vw,80px);align-items:end}
+.teaser h2{font-size:clamp(2rem,4.4vw,3.2rem)}
+.teaser p{color:var(--muted);font-weight:300;max-width:46ch}
+@media (max-width:820px){.teaser-in{grid-template-columns:1fr}}
+
+/* Page Tarifs */
+.page-head{padding-block:clamp(72px,11vw,140px) clamp(56px,8vw,96px)}
+.page-head h1{font-size:clamp(2.6rem,6.6vw,5.2rem);max-width:15ch;margin:28px auto 0}
+.page-head .lead{max-width:54ch;margin:28px auto 0;color:var(--muted);font-weight:300;font-size:1.1rem}
+.page-head .back{margin-top:40px;font-size:.78rem;letter-spacing:.16em;text-transform:uppercase}
+.page-head .back a{color:var(--green);text-decoration:none;border-bottom:1px solid var(--green);padding-bottom:2px}
+.tarifs-body{padding-top:clamp(56px,8vw,96px)}
+.btn-light{background:var(--green-ink);color:var(--green);border-color:var(--green-ink)}
+.btn-light:hover{background:transparent;color:var(--green-ink)}
+.coord .call{margin-top:6px;padding:12px 26px}
+.contact .sign{margin-top:22px;font-family:var(--serif);font-style:italic;font-size:1.25rem;color:var(--acc2-on)}
+.bar nav a[aria-current="page"]{color:var(--ink)}
+
+/* Mentions légales */
+.legal-body{padding-top:clamp(48px,7vw,80px)}
+.legal-text{max-width:760px;margin-inline:auto;display:grid;gap:14px}
+.legal-text h2{font-size:clamp(1.6rem,3vw,2.1rem);margin-top:34px;padding-top:24px;border-top:1px solid var(--line)}
+.legal-text p{color:var(--muted);font-weight:300}
+.legal-text .updated{font-size:.85rem}
+.legal-text dl{margin:0;display:grid;grid-template-columns:180px 1fr;border-top:1px solid var(--line)}
+.legal-text dt,.legal-text dd{margin:0;padding:12px 0;border-bottom:1px solid var(--line)}
+.legal-text dt{font-size:.76rem;letter-spacing:.14em;text-transform:uppercase;color:var(--green);padding-top:15px}
+.legal-text dd{font-weight:300;min-width:0;overflow-wrap:anywhere}
+@media (max-width:560px){.legal-text dl{grid-template-columns:1fr}.legal-text dt{border-bottom:0;padding-bottom:0}}
+.legal-text .todo{background:color-mix(in srgb,var(--green) 10%,transparent);padding:0 .25em;opacity:1}
+
+.mbar{display:none}
+@media (max-width:760px){
+  .mbar{display:grid;grid-template-columns:1fr 1fr;gap:10px;position:fixed;left:0;right:0;bottom:0;z-index:9;background:var(--bg);border-top:1px solid var(--line);
+    padding:10px max(16px,env(safe-area-inset-right,0px)) calc(10px + env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px))}
+  .mbar .btn{padding:13px 8px}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<header class="bar">
+  <div class="wrap">
+    <nav class="l" aria-label="Sections">
+      <a href="#approche">Approche</a>
+      <a href="#realisations">Réalisations</a>
+    </nav>
+    <a class="brand" href="#top">RM Sites</a>
+    <nav class="r" aria-label="Sections et contact">
+      <a href="#tarifs">Formules</a>
+      <a class="cta-link" href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+<div id="v-home">
+  <section class="hero center">
+    <div class="wrap">
+      <p class="kicker">Sites internet pour commerces et artisans</p>
+      <h1>Un site à l'image de <em>votre commerce.</em></h1>
+      <p class="lead">Conçu sur mesure selon vos demandes, puis suivi et entretenu dans la durée. Vous gardez votre temps pour vos clients, je m'occupe du reste.</p>
+      <div class="actions">
+        <a class="btn btn-fill" href="#contact">Prendre rendez-vous</a>
+        <a class="btn btn-line" href="#realisations">Voir les réalisations</a>
+      </div>
+      <p class="place">Déplacement autour de Strasbourg</p>
+    </div>
+  </section>
+
+  <section id="approche" class="tint">
+    <div class="wrap">
+      <div class="split-head">
+        <div><p class="kicker">Approche</p><h2 style="margin-top:20px">Un travail sur mesure, et <em>quelqu'un</em> pour s'en occuper ensuite.</h2></div>
+        <p>Votre site ne sort pas d'un catalogue. Il naît d'une conversation au commerce, et il continue d'évoluer avec votre activité une fois en ligne.</p>
+      </div>
+      <div class="pillars">
+        <div class="pillar">
+          <p class="em">Sur mesure</p>
+          <h3>Pensé selon vos demandes</h3>
+          <p>Vos couleurs, votre logo, vos mots. Les rubriques dont vous avez besoin, et seulement celles-là : une carte, un formulaire de devis, la commande de vos pâtisseries ou un lien vers vos rendez-vous. Vous validez chaque étape, avec autant de retouches que vous le souhaitez dans le cadre de votre formule.</p>
+        </div>
+        <div class="pillar">
+          <p class="em">Suivi</p>
+          <h3>Un interlocuteur qui reste</h3>
+          <p>Après la mise en ligne, je reste joignable par téléphone ou par SMS. Nous faisons régulièrement le point, je vous conseille pour votre fiche Google et vos avis, et le site s'enrichit quand votre activité change.</p>
+        </div>
+        <div class="pillar">
+          <p class="em">Maintenance</p>
+          <h3>Rien de technique à gérer</h3>
+          <p>Hébergement, nom de domaine et connexion sécurisée sont renouvelés pour vous. Le site est sauvegardé et vérifié, et vos horaires, prix ou photos sont mis à jour sous 48 heures ouvrées.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="green center">
+    <div class="wrap">
+      <p class="kicker">Engagements</p>
+      <p class="statement">Un seul interlocuteur, du premier rendez-vous <em>aux années qui suivent.</em></p>
+      <div class="promises">
+        <div class="promise"><strong>30 min</strong><span>de votre temps pour démarrer</span></div>
+        <div class="promise"><strong>7 jours</strong><span>pour un site d'une page</span></div>
+        <div class="promise"><strong>48 h</strong><span>pour chaque mise à jour</span></div>
+        <div class="promise"><strong>À vous</strong><span>le nom de domaine et le site</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="realisations">
+    <div class="wrap">
+      <div class="split-head">
+        <div><p class="kicker">Réalisations</p><h2 style="margin-top:20px">Chaque commerce, <em>son</em> site.</h2></div>
+        <p>Couleurs, rubriques et fonctions changent d'un métier à l'autre. Voici quelques exemples de ce qui est possible, à découvrir de préférence sur téléphone.</p>
+      </div>
+      <div class="works">
+        <a class="work" href="https://claude.ai/artifact/8aMwoLNmX3eG2B2WFGJZCV" target="_blank" rel="noopener">
+          <div class="frame" aria-hidden="true"><div class="scr"><div class="hd" style="background:#A6452E"><i></i><i></i></div><div class="ln"><i></i><i></i><i></i></div></div></div>
+          <div class="meta"><h3>Boulangerie-pâtisserie</h3><p>Produits et prix, spécialités, commandes pour le week-end.</p><span class="go">Découvrir</span></div>
+        </a>
+        <a class="work" href="https://claude.ai/artifact/VyLgA7Gy9jJJEjMNLGysPb" target="_blank" rel="noopener">
+          <div class="frame" aria-hidden="true"><div class="scr"><div class="hd" style="background:#2B2927"><i></i><i></i></div><div class="ln"><i></i><i></i><i></i></div></div></div>
+          <div class="meta"><h3>Salon de coiffure</h3><p>L'équipe, les tarifs, la demande de rendez-vous.</p><span class="go">Découvrir</span></div>
+        </a>
+        <a class="work" href="https://claude.ai/artifact/CKVRsGJNUGQG753viUkVRy" target="_blank" rel="noopener">
+          <div class="frame" aria-hidden="true"><div class="scr"><div class="hd" style="background:#1F3F6B"><i></i><i></i></div><div class="ln"><i></i><i></i><i></i></div></div></div>
+          <div class="meta"><h3>Artisan électricien</h3><p>Dépannage, chantiers avant/après, devis avec photos.</p><span class="go">Découvrir</span></div>
+        </a>
+        <a class="work" href="https://claude.ai/artifact/QHkhQzY5ygdMfTVpSTRNoz" target="_blank" rel="noopener">
+          <div class="frame" aria-hidden="true"><div class="scr"><div class="hd" style="background:#3E5E4B"><i></i><i></i></div><div class="ln"><i></i><i></i><i></i></div></div></div>
+          <div class="meta"><h3>Fleuriste</h3><p>Créations de saison, carte et galerie.</p><span class="go">Découvrir</span></div>
+        </a>
+        <a class="work" href="https://claude.ai/artifact/E4eYRhH9YmJNiBzWVUJRt1" target="_blank" rel="noopener">
+          <div class="frame" aria-hidden="true"><div class="scr"><div class="hd" style="background:#4F7466"><i></i><i></i></div><div class="ln"><i></i><i></i><i></i></div></div></div>
+          <div class="meta"><h3>Institut de beauté</h3><p>Soins, durées et prix, réservation en ligne.</p><span class="go">Découvrir</span></div>
+        </a>
+        <a class="work blank" href="#contact">
+          <div class="frame"><span>Votre commerce ?</span></div>
+          <div class="meta"><h3>Le vôtre</h3><p>Restaurant, garage, caviste, plombier : construit selon vos demandes.</p><span class="go">En parler</span></div>
+        </a>
+      </div>
+      <p class="fineprint">Sites de démonstration : les commerces, numéros et avis présentés sont fictifs.</p>
+    </div>
+  </section>
+
+  <section class="teaser tint">
+    <div class="wrap teaser-in">
+      <div><p class="kicker">Formules</p><h2 style="margin-top:16px">Une formule <em>pour chaque commerce.</em></h2></div>
+      <div><p>Un site d'une page pour être trouvé facilement, ou un site complet pour présenter toute votre activité. Dans les deux cas, il est conçu sur mesure, puis suivi et entretenu dans la durée.</p><a class="btn btn-line" href="#tarifs" style="margin-top:24px">Découvrir les formules</a></div>
+    </div>
+  </section>
+
+  <section id="deroulement">
+    <div class="wrap">
+      <div class="split-head">
+        <div><p class="kicker">Déroulement</p><h2 style="margin-top:20px">De la rencontre <em>à la mise en ligne.</em></h2></div>
+        <p>Trente minutes de votre temps suffisent. Les textes et les photos sont pris en charge.</p>
+      </div>
+      <div class="timeline">
+        <div class="stage"><span class="d">Premier jour</span><h3>La rencontre</h3><p>Au commerce, nous définissons ensemble le contenu, je prends les photos et nous choisissons votre nom de domaine.</p></div>
+        <div class="stage"><span class="d">Jours 3 à 7</span><h3>La première version</h3><p>Vous la découvrez sur votre téléphone et me dites ce qu'il faut ajuster. Je retouche autant de fois que nécessaire, dans le cadre de la formule choisie, jusqu'à ce que le site vous convienne.</p></div>
+        <div class="stage"><span class="d">Jours 7 à 14</span><h3>La mise en ligne</h3><p>Le site est publié à votre adresse. Le suivi commence.</p></div>
+      </div>
+      <p class="bring">Pour démarrer, il me faut simplement <span>vos horaires, la liste de vos produits ou prestations avec leurs prix, votre logo s'il existe, et les informations de votre entreprise pour les mentions légales.</span></p>
+    </div>
+  </section>
+
+  <section id="questions" class="tint">
+    <div class="wrap">
+      <div class="center"><p class="kicker">Questions</p><h2 style="margin-top:20px;font-size:clamp(2.2rem,5vw,3.6rem)">Questions <em>fréquentes</em></h2></div>
+      <div class="faq faq-one">
+          <details><summary>Dois-je préparer des textes ou des photos ?</summary><p>Ce n'est pas obligatoire : je peux rédiger les textes à partir de notre échange et prendre les photos au commerce. Mais vous pouvez aussi préparer vos propres photos (vos produits, vos réalisations, votre équipe, votre boutique) : c'est l'occasion de mettre en avant exactement ce que vous voulez faire ressortir, pour un site encore plus à votre image. Vous validez ensuite le résultat.</p></details>
+          <details><summary>Combien de retouches sont possibles ?</summary><p>Autant que vous le souhaitez avant la mise en ligne, dans le cadre de la formule choisie : je retouche le site jusqu'à ce qu'il vous convienne, sans supplément. Une page ou une fonction en plus fait l'objet d'un devis.</p></details>
+          <details><summary>Comment demander une modification ?</summary><p>Par SMS ou par e-mail. Avec le suivi, les modifications courantes sont faites sous 48 heures ouvrées.</p></details>
+          <details><summary>Qui est propriétaire du site ?</summary><p>Vous. Le nom de domaine est déposé à votre nom et les fichiers vous sont remis sur demande. Un autre prestataire peut le reprendre à tout moment.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="green center">
+    <div class="wrap">
+      <p class="kicker">Contact</p>
+      <h2>Un projet pour <em>votre commerce ?</em></h2>
+      <p class="lead">Appelez-moi pour en discuter. Je viens ensuite vous rencontrer à votre commerce pour comprendre vos besoins et vous montrer ce qui est possible, sans engagement de votre part.</p>
+      <p class="sign">Raphaël Mata, RM Sites</p>
+      <div class="coords">
+        <div class="coord"><small>Téléphone</small><span id="tel">06 10 75 06 52</span><a class="btn btn-light call" href="tel:+33610750652">Appeler</a></div>
+        <div class="coord"><small>Secteur</small><span>Déplacement sur Strasbourg et ses alentours</span></div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<div id="v-tarifs" hidden>
+  <section class="page-head tint center">
+    <div class="wrap">
+      <p class="kicker">Formules</p>
+      <h1>La formule <em>qui vous ressemble.</em></h1>
+      <p class="lead">Deux formules conçues sur mesure, à adapter à votre activité. Nous choisissons ensemble celle qui vous convient lors du premier rendez-vous.</p>
+      <p class="back"><a href="#top">Retour à l'accueil</a></p>
+    </div>
+  </section>
+  <section class="tarifs-body">
+    <div class="wrap">
+      <div class="split-head">
+        <div><p class="kicker">Formules</p><h2 style="margin-top:20px">Essentiel <em>ou</em> Complet.</h2></div>
+        <p>Les deux comprennent la conception sur mesure, la rédaction des textes, les photos prises au commerce et la mise en ligne.</p>
+      </div>
+
+      <div class="prices">
+        <article class="offer">
+          <h3>Essentiel</h3>
+          <p class="sub">Une page élégante pour être trouvé et joint facilement.</p>
+          <div class="amount"><strong>590 €</strong></div>
+          <div class="incl">
+            <span>Présentation, horaires, adresse et plan</span>
+            <span>Appel et itinéraire en un geste</span>
+            <span>Jusqu'à 15 produits ou prestations avec prix</span>
+            <span>8 photos, liens vers vos avis et réseaux</span>
+            <span>Référencement local, mentions légales</span>
+            <span>Corrections illimitées dans le cadre de la formule</span>
+          </div>
+          <p class="when">En ligne sous 7 jours.</p>
+        </article>
+        <article class="offer">
+          <h3>Complet</h3>
+          <p class="sub">Un site jusqu'à cinq pages pour les activités riches en prestations.</p>
+          <div class="amount"><strong>990 €</strong></div>
+          <div class="incl">
+            <span>Tout l'Essentiel</span>
+            <span>Accueil, prestations, galerie, présentation, contact</span>
+            <span>Produits et prestations sans limite</span>
+            <span>20 photos et formulaire de contact</span>
+            <span>Référencement page par page, Google Search Console</span>
+            <span>Corrections illimitées dans le cadre de la formule</span>
+          </div>
+          <p class="when">En ligne sous 14 jours.</p>
+        </article>
+      </div>
+
+      <div class="addons">
+        <div class="addon"><div class="t"><h3>Suivi et maintenance</h3><span>19 € / mois</span></div><p>Domaine, hébergement sécurisé, sauvegardes, vérifications et jusqu'à trois mises à jour par mois. Engagement de douze mois.</p></div>
+        <div class="addon"><div class="t"><h3>Fiche Google</h3><span>150 €</span></div><p>Création ou reprise de votre fiche Google Maps : catégorie, horaires, description, photos et lien vers le site.</p></div>
+        <div class="addon"><div class="t"><h3>Sans suivi</h3><span>99 € / an</span></div><p>Domaine et hébergement seuls. Chaque mise à jour est facturée 30 €.</p></div>
+      </div>
+
+      <p class="compare">À titre de repère, une agence facture un site vitrine <em>2 000 à 8 000 €</em>, un indépendant <em>500 à 2 500 €</em>, et un site Wix coûte <em>17 à 30 € par mois</em>, plus le temps de le construire soi-même.</p>
+      <p class="legal">Prix nets, TVA non applicable (art. 293 B du CGI). Règlement en deux fois : 50 % à la commande, 50 % à la mise en ligne. Vente en ligne, réservation intégrée, version multilingue et création de logo sur devis. Repères de prix relevés en octobre 2026.</p>
+    </div>
+  </section>
+
+  <section class="green center">
+    <div class="wrap">
+      <p class="kicker">Rendez-vous</p>
+      <p class="statement">Une formule vous intéresse ? <em>Discutons-en.</em></p>
+      <div class="actions" style="display:flex;justify-content:center;margin-top:40px"><a class="btn btn-light" href="#contact">Me contacter</a></div>
+    </div>
+  </section>
+</div>
+<div id="v-mentions" hidden>
+  <section class="page-head tint center">
+    <div class="wrap">
+      <p class="kicker">Informations</p>
+      <h1>Mentions <em>légales</em></h1>
+      <p class="back"><a href="#top">Retour à l'accueil</a></p>
+    </div>
+  </section>
+  <section class="legal-body">
+    <div class="wrap legal-text">
+      <p class="updated">Dernière mise à jour : <span class="todo">date de mise en ligne</span></p>
+
+      <h2>Éditeur du site</h2>
+      <p>Le site <span class="todo">rm-sites.fr</span> est édité par :</p>
+      <dl>
+        <dt>Nom</dt><dd>Raphaël Mata, entrepreneur individuel (EI), exerçant sous le nom commercial « RM Sites »</dd>
+        <dt>Statut</dt><dd>Micro-entreprise, activité libérale de création de sites internet</dd>
+        <dt>Adresse</dt><dd><span class="todo">adresse de domiciliation de l'entreprise à compléter</span></dd>
+        <dt>SIRET</dt><dd><span class="todo">à compléter après immatriculation</span></dd>
+        <dt>Immatriculation</dt><dd>Inscrit au Registre national des entreprises (RNE)</dd>
+        <dt>TVA</dt><dd>TVA non applicable, article 293 B du Code général des impôts</dd>
+        <dt>Téléphone</dt><dd>06 10 75 06 52</dd>
+        <dt>E-mail</dt><dd><span class="todo">contact@rm-sites.fr (à créer)</span></dd>
+      </dl>
+
+      <h2>Directeur de la publication</h2>
+      <p>Raphaël Mata.</p>
+
+      <h2>Hébergement</h2>
+      <p>Le site est hébergé par IONOS SARL, 7 place de la Gare, BP 70109, 57201 Sarreguemines Cedex, France. Téléphone : 09 70 80 89 11. <span class="todo">À confirmer lors de la mise en ligne.</span></p>
+
+      <h2>Propriété intellectuelle</h2>
+      <p>L'ensemble des contenus de ce site (textes, mise en page, éléments graphiques, logo et nom « RM Sites ») est la propriété de Raphaël Mata, sauf mention contraire. Toute reproduction, représentation ou adaptation, totale ou partielle, sans autorisation écrite préalable est interdite.</p>
+      <p>Les sites présentés dans la rubrique « Réalisations » sont des sites de démonstration : les commerces, noms, numéros et avis qui y figurent sont fictifs.</p>
+
+      <h2>Données personnelles</h2>
+      <p>Ce site ne comporte aucun formulaire et ne collecte aucune donnée personnelle. Les informations que vous transmettez par téléphone ou par e-mail (nom, coordonnées, informations sur votre commerce) sont utilisées uniquement pour répondre à votre demande et préparer un devis. Elles ne sont ni vendues ni transmises à des tiers, et sont conservées au maximum trois ans après le dernier contact, sauf obligation légale de conservation plus longue (factures, par exemple).</p>
+      <p>Conformément au règlement général sur la protection des données (RGPD) et à la loi Informatique et Libertés, vous disposez d'un droit d'accès, de rectification, d'effacement, de limitation et d'opposition au traitement de vos données. Pour l'exercer, contactez Raphaël Mata aux coordonnées ci-dessus. Vous pouvez également introduire une réclamation auprès de la CNIL (cnil.fr).</p>
+
+      <h2>Cookies</h2>
+      <p>Ce site ne dépose aucun cookie et n'utilise aucun outil de mesure d'audience ou de publicité. Aucun bandeau de consentement n'est donc nécessaire.</p>
+
+      <h2>Liens externes</h2>
+      <p>Ce site peut contenir des liens vers d'autres sites. RM Sites n'exerce aucun contrôle sur leur contenu et ne peut être tenu responsable de celui-ci.</p>
+
+      <h2>Droit applicable</h2>
+      <p>Les présentes mentions légales sont soumises au droit français.</p>
+    </div>
+  </section>
+</div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 RM Sites · Raphaël Mata</span>
+    <span>Micro-entreprise · SIRET <span class="todo">à compléter</span> · <a href="#mentions-legales" style="color:inherit">Mentions légales</a></span>
+  </div>
+</footer>
+
+<div class="mbar">
+  <a class="btn btn-fill" href="#contact">Rendez-vous</a>
+  <a class="btn btn-line" href="#tarifs">Formules</a>
+</div>
+
+<script>
+(function(){
+  var home=document.getElementById('v-home'), tarifs=document.getElementById('v-tarifs'), legal=document.getElementById('v-mentions');
+  var navT=document.querySelectorAll('a[href="#tarifs"]');
+  function route(scroll){
+    var h=location.hash.replace('#','');
+    var onT=h==='tarifs', onL=h==='mentions-legales';
+    home.hidden=onT||onL; tarifs.hidden=!onT; legal.hidden=!onL;
+    navT.forEach(function(a){ if(a.closest('nav')){ if(onT){a.setAttribute('aria-current','page')}else{a.removeAttribute('aria-current')} } });
+    if(onT){ window.scrollTo(0,0); document.title='Formules · RM Sites'; }
+    else if(onL){ window.scrollTo(0,0); document.title='Mentions légales · RM Sites'; }
+    else { document.title='RM Sites';
+      var t=h&&h!=='top'?document.getElementById(h):null;
+      if(scroll){ if(t){ t.scrollIntoView(); } else { window.scrollTo(0,0); } }
+    }
+  }
+  window.addEventListener('hashchange',function(){route(true)});
+  route(true);
+})();
+document.querySelectorAll('.copy').forEach(function(b){
+  b.addEventListener('click',function(){
+    var el=document.getElementById(b.dataset.copy), t=el.textContent.trim();
+    function done(){b.textContent='Copié';setTimeout(function(){b.textContent='Copier'},1600)}
+    function sel(){var r=document.createRange();r.selectNodeContents(el);var s=getSelection();s.removeAllRanges();s.addRange(r);b.textContent='Sélectionné'}
+    try{navigator.clipboard.writeText(t).then(done,sel)}catch(e){sel()}
+  });
+});
+</script>
+</body>
+</html>
