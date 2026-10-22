@@ -1,0 +1,227 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Devis · RM Sites</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" href="logo/rm-sites-monogramme.svg" type="image/svg+xml">
+<style>
+@font-face{font-family:"Cormorant Garamond";font-style:normal;font-weight:500;font-display:swap;src:url(fonts/cormorant-garamond-latin-500-normal.woff2) format("woff2")}
+@font-face{font-family:"Hanken Grotesk";font-style:normal;font-weight:400;font-display:swap;src:url(fonts/hanken-grotesk-latin-400-normal.woff2) format("woff2")}
+@font-face{font-family:"Hanken Grotesk";font-style:normal;font-weight:500;font-display:swap;src:url(fonts/hanken-grotesk-latin-500-normal.woff2) format("woff2")}
+@font-face{font-family:"Hanken Grotesk";font-style:normal;font-weight:600;font-display:swap;src:url(fonts/hanken-grotesk-latin-600-normal.woff2) format("woff2")}
+
+/* Feuille A4 : bandes diagonales or (coin haut droit, coin bas gauche) avec un filet vert sapin, en-tête de tableau or */
+:root{
+  --green:#1B4535; --gold:#C9A25A; --gold-d:#A9843F; --gold-l:#E3C98F; --ink:#1E2420; --muted:#6B746E; --line:#2A2F2C; --row:#F3F1EC; --desk:#E6EAE7;
+  --serif:"Cormorant Garamond",Georgia,serif; --sans:"Hanken Grotesk",system-ui,-apple-system,"Segoe UI",Arial,sans-serif;
+}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--desk);color:var(--ink);font-family:var(--sans)}
+
+.tools{position:sticky;top:0;z-index:5;background:var(--green);color:#fff;display:flex;flex-wrap:wrap;gap:8px;align-items:center;justify-content:center;padding:10px 16px;font-size:14px}
+.tools strong{margin-right:6px;font-weight:600}
+.tools button{font:inherit;font-size:13px;border:1px solid rgba(255,255,255,.5);background:transparent;color:#fff;padding:7px 13px;border-radius:999px;cursor:pointer}
+.tools button:hover{background:rgba(255,255,255,.12)}
+.tools button.main{background:var(--gold);border-color:var(--gold);color:#1a1a1a;font-weight:600}
+.help{max-width:210mm;margin:12px auto 0;padding:0 16px;font-size:13px;color:var(--muted);text-align:center}
+
+.sheet{width:210mm;height:297mm;margin:14px auto 40px;background:#fff;position:relative;overflow:hidden;box-shadow:0 10px 40px -18px rgba(0,0,0,.35)}
+/* Bandes diagonales */
+.stripes{position:absolute;width:120mm;height:120mm;pointer-events:none}
+.stripes i{position:absolute;left:-40mm;width:200mm;transform:rotate(35deg);transform-origin:center}
+.stripes.tr{top:-34mm;right:-44mm}
+.stripes.bl{bottom:-44mm;left:-56mm}
+.stripes .a{height:12mm;top:38mm;background:linear-gradient(90deg,var(--gold-d),var(--gold),var(--gold-l))}
+.stripes .b{height:2.4mm;top:55mm;background:var(--green)}
+.stripes .c{height:9mm;top:62mm;background:linear-gradient(90deg,var(--gold-l),var(--gold),var(--gold-d))}
+
+.page{position:relative;padding:18mm 20mm 14mm;height:100%;display:flex;flex-direction:column;font-size:10pt;line-height:1.55}
+.top{display:flex;justify-content:space-between;align-items:flex-start}
+.top img{width:58mm;height:auto;display:block;margin-left:-2mm}
+.titlebox{text-align:center;margin-right:30mm;padding-top:3mm}
+.titlebox h1{margin:0;font-family:var(--sans);font-weight:600;font-size:21pt;color:var(--gold-d);letter-spacing:.01em}
+.titlebox .when{margin-top:3mm}
+
+.parties{display:flex;justify-content:space-between;align-items:flex-start;margin-top:12mm}
+.emit{line-height:1.85}
+.emit .name{font-weight:600}
+.client{width:72mm;margin-top:18mm;border:1.2px solid var(--line);padding:5mm 6mm;line-height:1.85;min-height:36mm}
+
+table{width:100%;border-collapse:collapse;margin-top:14mm;font-size:9.5pt}
+thead th{background:var(--gold);color:#1a1a1a;font-weight:600;padding:2.4mm 2mm;text-align:center;vertical-align:top;line-height:1.25}
+thead th:first-child{width:46%}
+tbody td{padding:1.6mm 2mm;text-align:center}
+tbody tr:nth-child(even) td{background:var(--row)}
+tbody td:first-child{text-align:center}
+tbody td .sub{display:block;font-size:8pt;color:var(--muted)}
+td.del{width:0;padding:0!important;position:relative;background:none!important}
+td.del button{position:absolute;right:-8mm;top:50%;transform:translateY(-50%);width:6mm;height:6mm;border-radius:50%;border:1px solid #ccc;background:#fff;color:#999;cursor:pointer;line-height:1}
+
+.mid{display:flex;justify-content:space-between;align-items:flex-start;margin-top:9mm;gap:10mm}
+.cond{width:74mm;border:1.2px solid var(--line);padding:5mm 6mm;min-height:44mm;font-size:9pt;line-height:1.5}
+.cond b{font-weight:600}
+.cond p{margin:0 0 3mm}
+.right{display:flex;flex-direction:column;align-items:flex-end;gap:5mm;flex:1}
+.totals{border-collapse:collapse;font-size:9.5pt;min-width:62mm;margin:0}
+.totals td{padding:1.2mm 3mm;font-weight:600;text-align:right}
+.totals tr.note td{font-weight:400;font-size:8pt;color:var(--muted);background:var(--row)}
+.totals tr.grand td{background:var(--gold);color:#1a1a1a}
+.valid{margin-top:5mm}
+.signbox{width:58mm;height:22mm;border:1.2px solid var(--line)}
+
+.foot{margin-top:auto;text-align:center;font-size:8pt;color:var(--muted);line-height:1.8}
+
+[contenteditable]{outline:none;border-radius:1mm}
+[contenteditable]:hover{background:#FFF8E8}
+[contenteditable]:focus{background:#FFF1CF}
+[contenteditable]:empty::before{content:attr(data-ph);color:#B9A27E;font-style:italic}
+
+@page{size:A4;margin:0}
+@media print{
+  html,body{background:#fff}
+  .tools,.help,td.del{display:none!important}
+  .sheet{margin:0;box-shadow:none}
+  [contenteditable]:empty::before{content:"…"}
+  [contenteditable]:hover,[contenteditable]:focus{background:none}
+  *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+}
+</style>
+</head>
+<body>
+
+<div class="tools">
+  <strong>Devis RM Sites</strong>
+  <button type="button" data-add="essentiel">+ Essentiel</button>
+  <button type="button" data-add="complet">+ Complet</button>
+  <button type="button" data-add="google">+ Fiche Google</button>
+  <button type="button" data-add="suivi">+ Suivi mensuel</button>
+  <button type="button" data-add="libre">+ Ligne libre</button>
+  <button type="button" id="reset">Nouveau devis</button>
+  <button type="button" class="main" id="print">Enregistrer en PDF</button>
+</div>
+<p class="help">Clique sur un texte pour le modifier. Les montants se calculent tout seuls. « Enregistrer en PDF » ouvre l'impression : choisis « Enregistrer au format PDF ».</p>
+
+<div class="sheet">
+  <div class="stripes tr" aria-hidden="true"><i class="a"></i><i class="b"></i><i class="c"></i></div>
+  <div class="stripes bl" aria-hidden="true"><i class="a"></i><i class="b"></i><i class="c"></i></div>
+
+  <div class="page">
+    <div class="top">
+      <img src="logo/rm-sites-logo.svg" alt="RM Sites, sur mesure, Strasbourg">
+      <div class="titlebox">
+        <h1>Devis N° <span contenteditable="true" id="num" data-ph="RM-2026-001">RM-2026-001</span></h1>
+        <div class="when"><span contenteditable="true" id="city" data-ph="Ville">Strasbourg</span>, le <span contenteditable="true" id="date" data-ph="JJ/MM/AAAA"></span></div>
+      </div>
+    </div>
+
+    <div class="parties">
+      <div class="emit">
+        <div class="name">RM Sites – Raphaël Mata EI</div>
+        <div contenteditable="true" id="e-addr" data-ph="Adresse"></div>
+        <div contenteditable="true" id="e-city" data-ph="Code postal et ville"></div>
+        <div>06 10 75 06 52</div>
+        <div contenteditable="true" id="e-mail" data-ph="contact@rm-sites.fr"></div>
+      </div>
+      <div class="client">
+        <div contenteditable="true" id="c-name" data-ph="Nom du client"></div>
+        <div contenteditable="true" id="c-addr" data-ph="Adresse"></div>
+        <div contenteditable="true" id="c-tel" data-ph="Numéro de téléphone"></div>
+        <div contenteditable="true" id="c-mail" data-ph="E-mail"></div>
+      </div>
+    </div>
+
+    <table>
+      <thead><tr><th>Description</th><th>Prix<br>unitaire</th><th>Unité</th><th>Quantité</th><th>Montant</th></tr></thead>
+      <tbody id="lines"></tbody>
+    </table>
+
+    <div class="mid">
+      <div class="cond">
+        <p><b>Modalités et conditions de règlement :</b><br>acompte de 50 % à la signature (<span id="deposit">0,00 €</span>), solde à la mise en ligne, par virement.</p>
+        <p><b>Délai :</b> mise en ligne sous <span contenteditable="true" id="delay" data-ph="14">14</span> jours après l'acompte et la réception des éléments. Retouches illimitées avant mise en ligne, dans le cadre de la formule.</p>
+      </div>
+      <div class="right">
+        <table class="totals">
+          <tr class="grand"><td>Total net</td><td id="total">0,00 €</td></tr>
+          <tr class="note"><td colspan="2">TVA non applicable, art. 293 B du CGI</td></tr>
+        </table>
+        <div class="valid">Offre valable jusqu'au <span contenteditable="true" id="valid" data-ph="JJ/MM/AAAA"></span></div>
+        <div>Signature / bon pour accord :</div>
+        <div class="signbox"></div>
+      </div>
+    </div>
+
+    <div class="foot">
+      RM Sites – Raphaël Mata, entrepreneur individuel (EI), micro-entreprise<br>
+      N° SIRET : <span contenteditable="true" id="e-siret" data-ph="à compléter"></span> · En cas de retard de paiement : pénalités au triple du taux légal et indemnité forfaitaire de 40 €
+    </div>
+  </div>
+</div>
+
+<script>
+(function(){
+  var P={
+    essentiel:{d:"Formule Essentiel",s:"Site d'une page, référencement local, mise en ligne",u:"forfait",q:1,p:590},
+    complet:{d:"Formule Complet",s:"Site jusqu'à 5 pages, formulaire de contact, mise en ligne",u:"forfait",q:1,p:990},
+    google:{d:"Fiche Google",s:"Création ou reprise de la fiche Google Maps",u:"forfait",q:1,p:150},
+    suivi:{d:"Suivi et maintenance",s:"Domaine, hébergement, mises à jour (engagement 12 mois)",u:"mois",q:12,p:19},
+    libre:{d:"",s:"",u:"",q:1,p:0}
+  };
+  var KEY='rm-devis-v2', tbody=document.getElementById('lines');
+  var fmt=new Intl.NumberFormat('fr-FR',{style:'currency',currency:'EUR'});
+  function num(t){var n=parseFloat(String(t).replace(/[\s  €]/g,'').replace(',','.'));return isNaN(n)?0:n}
+  function add(p){
+    var tr=document.createElement('tr');
+    tr.innerHTML='<td><span class="d" contenteditable="true" data-ph="Ajouter une prestation"></span><span class="sub" contenteditable="true" data-ph=""></span></td>'+
+      '<td><span class="p" contenteditable="true" data-ph="… €"></span></td><td><span class="u" contenteditable="true" data-ph="…"></span></td>'+
+      '<td><span class="q" contenteditable="true" data-ph="1"></span></td><td class="lt"></td>'+
+      '<td class="del"><button type="button" aria-label="Supprimer la ligne" title="Supprimer la ligne">×</button></td>';
+    tr.querySelector('.d').textContent=p.d; tr.querySelector('.sub').textContent=p.s||'';
+    tr.querySelector('.p').textContent=p.p?fmt.format(p.p):''; tr.querySelector('.u').textContent=p.u||'';
+    tr.querySelector('.q').textContent=p.q;
+    tr.querySelector('.del button').onclick=function(){tr.remove();calc();save()};
+    tbody.appendChild(tr); calc();
+  }
+  function calc(){
+    var t=0;
+    tbody.querySelectorAll('tr').forEach(function(tr){
+      var v=num(tr.querySelector('.q').textContent||1)*num(tr.querySelector('.p').textContent);
+      tr.querySelector('.lt').textContent=v?fmt.format(v):'… €'; t+=v;
+    });
+    document.getElementById('total').textContent=fmt.format(t);
+    document.getElementById('deposit').textContent=fmt.format(t/2);
+  }
+  function fields(){return Array.prototype.slice.call(document.querySelectorAll('[contenteditable][id]'))}
+  function save(){try{
+    var d={f:{},l:[]}; fields().forEach(function(e){d.f[e.id]=e.textContent});
+    tbody.querySelectorAll('tr').forEach(function(tr){d.l.push({d:tr.querySelector('.d').textContent,s:tr.querySelector('.sub').textContent,u:tr.querySelector('.u').textContent,q:tr.querySelector('.q').textContent,p:num(tr.querySelector('.p').textContent)})});
+    localStorage.setItem(KEY,JSON.stringify(d));
+  }catch(e){}}
+  function fr(d){return d.toLocaleDateString('fr-FR')}
+  function fresh(){
+    tbody.innerHTML='';
+    var keep=['num','city','e-addr','e-city','e-mail','e-siret','delay'];
+    fields().forEach(function(e){if(keep.indexOf(e.id)<0)e.textContent=''});
+    var d=new Date(); document.getElementById('date').textContent=fr(d);
+    d.setDate(d.getDate()+30); document.getElementById('valid').textContent=fr(d);
+    add(P.complet); add(P.google); add(P.libre);
+  }
+  var s=null; try{s=JSON.parse(localStorage.getItem(KEY)||'null')}catch(e){}
+  if(s){Object.keys(s.f||{}).forEach(function(id){var e=document.getElementById(id);if(e)e.textContent=s.f[id]});(s.l||[]).forEach(add);if(!(s.l||[]).length)add(P.complet)}
+  else fresh();
+  document.addEventListener('input',function(e){if(e.target.closest('[contenteditable]')){calc();save()}});
+  document.addEventListener('focusout',function(e){var el=e.target;if(el.classList&&el.classList.contains('p')){var v=num(el.textContent);el.textContent=v?fmt.format(v):'';calc();save()}});
+  document.addEventListener('paste',function(e){if(e.target.closest('[contenteditable]')){e.preventDefault();document.execCommand('insertText',false,(e.clipboardData||window.clipboardData).getData('text'))}});
+  document.querySelectorAll('[data-add]').forEach(function(b){b.onclick=function(){add(P[b.dataset.add]);save()}});
+  document.getElementById('reset').onclick=function(){
+    var n=document.getElementById('num'),m=/(\d+)$/.exec(n.textContent);
+    if(m)n.textContent=n.textContent.replace(/(\d+)$/,String(parseInt(m[1],10)+1).padStart(m[1].length,'0'));
+    fresh();save();
+  };
+  document.getElementById('print').onclick=function(){calc();window.print()};
+})();
+</script>
+</body>
+</html>
