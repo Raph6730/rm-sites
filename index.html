@@ -229,6 +229,14 @@ footer .wrap{border-top:1px solid color-mix(in srgb,var(--green-ink) 22%,transpa
 @media (max-width:560px){.legal-text dl{grid-template-columns:1fr}.legal-text dt{border-bottom:0;padding-bottom:0}}
 .legal-text .todo{background:color-mix(in srgb,var(--green) 10%,transparent);padding:0 .25em;opacity:1}
 
+/* Bandeau haut */
+.topband{background:var(--green);color:var(--green-ink)}
+.topband .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:9px;font-size:.72rem;font-weight:500;letter-spacing:.16em;text-transform:uppercase}
+.topband .short{display:none}
+.topband a{color:var(--acc2-on);text-decoration:none;white-space:nowrap}
+.topband a:hover{text-decoration:underline}
+@media (max-width:640px){.topband .long{display:none}.topband .short{display:inline}}
+
 .mbar{display:none}
 @media (max-width:760px){
   .mbar{display:grid;grid-template-columns:1fr 1fr;gap:10px;position:fixed;left:0;right:0;bottom:0;z-index:9;background:var(--bg);border-top:1px solid var(--line);
@@ -239,6 +247,12 @@ footer .wrap{border-top:1px solid color-mix(in srgb,var(--green-ink) 22%,transpa
 </style>
 </head>
 <body>
+<div class="topband">
+  <div class="wrap">
+    <span class="long">Sites internet sur mesure · Déplacement sur Strasbourg et ses alentours</span><span class="short">Strasbourg et alentours</span>
+    <a href="tel:+33610750652">06 10 75 06 52</a>
+  </div>
+</div>
 <header class="bar">
   <div class="wrap">
     <nav class="l" aria-label="Sections">
