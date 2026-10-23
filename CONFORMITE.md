@@ -38,7 +38,7 @@ Ce document n'est pas un avis juridique.
 ## À faire par un humain
 
 - [ ] Après la micro-entreprise : SIRET, adresse, e-mail, date (mentions légales, CGV, devis).
-- [ ] Trancher dans les CGV : rythme de paiement des abonnements ; ce qui se passe après les 12 mois de suivi (proposé : reconduction mois par mois, résiliable avec un mois de préavis) ; tribunal compétent.
+- [x] Choix des CGV tranchés le 23/10 : suivi payé chaque mois ou 12 mois d'avance ; après 12 mois, mois par mois avec un mois de préavis ; tribunaux selon le droit commun.
 - [ ] Rendre les démos partageables ou les remplacer.
 - [ ] Au lancement : robots.txt ouvert (modèle dans le fichier), retirer `noindex`, mettre à jour l'hébergeur (IONOS) et retirer le paragraphe GitHub.
 - [ ] Relecture des CGV par la CCI ou un juriste avant le premier client.
