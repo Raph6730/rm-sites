@@ -26,7 +26,7 @@ Ce document n'est pas un avis juridique.
 9. **Accessibilité (recommandée).** Corrigé : or des petits textes foncé en mode clair (#86672D, contraste 4,7:1 au lieu de 3,95:1) ; en mode sombre, les liens et boutons verts étaient presque invisibles (contraste 1,2:1) : nouvelle couleur de texte vert clair ; bandeau du haut et barre mobile nommés. Contrôle automatique : plus aucune erreur sur les 4 vues, en clair et en sombre. `devis.html` (outil interne) non corrigé.
 10. **Agents IA.** llms.txt (offre et prix), sitemap.xml, canonique rm-sites.fr, Open Graph, données structurées « ProfessionalService ». robots.txt reste fermé jusqu'au lancement ; la version à mettre est écrite dans le fichier.
 11. **Contenu :**
-    - **Comparatif de prix** : citait « un site Wix » nommément ; remplacé par « un abonnement à un constructeur de site en ligne ». Les fourchettes agence / indépendant restent des repères datés, à garder seulement si tu peux montrer d'où elles viennent.
+    - **Comparatif de prix** : retiré de la page Formules le 23/10 à la demande de Raphaël (plus aucun prix de concurrents sur le site).
     - **Réalisations** : les démos sont marquées fictives (bien). Mais les liens mènent à des pages claude.ai **privées** : un visiteur tombe sur une page d'erreur. À rendre partageables, ou remplacer par les vrais sites avec l'accord des clients.
 12. **Coordonnées.** Cohérentes (nom, statut, téléphone). Pas encore d'e-mail ni de SIRET.
 13. **Autres risques :**
