@@ -55,7 +55,7 @@ p{margin:0}
 a{color:inherit}
 :focus-visible{outline:1px solid var(--green);outline-offset:4px}
 .wrap{max-width:1120px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
-section{padding-block:clamp(72px,11vw,140px)}
+section{padding-block:clamp(56px,8vw,104px)}
 .kicker{font-size:.74rem;font-weight:500;letter-spacing:.24em;text-transform:uppercase;color:var(--muted)}
 .rule{width:56px;height:1px;background:var(--green);border:0;margin:0}
 .center{text-align:center}
@@ -81,14 +81,14 @@ footer .todo{opacity:1}
 .btn-line:hover{background:var(--green);color:var(--green-ink)}
 
 /* Accroche */
-.hero{padding-block:clamp(80px,13vw,170px) clamp(72px,10vw,130px)}
+.hero{padding-block:clamp(64px,10vw,130px) clamp(56px,8vw,100px)}
 .hero h1{font-size:clamp(2.7rem,7.4vw,6rem);max-width:15ch;margin:28px auto 0}
 .hero .lead{max-width:56ch;margin:30px auto 0;color:var(--muted);font-size:1.12rem;font-weight:300}
 .hero .actions{display:flex;flex-wrap:wrap;gap:14px;justify-content:center;margin-top:44px}
 .hero .place{margin-top:56px;font-family:var(--serif);font-style:italic;font-size:1.15rem;color:var(--muted)}
 
 /* Approche : trois colonnes séparées par des filets */
-.pillars{display:grid;grid-template-columns:repeat(3,1fr);margin-top:clamp(48px,7vw,80px);border-top:1px solid var(--line)}
+.pillars{display:grid;grid-template-columns:repeat(3,1fr);margin-top:clamp(36px,5vw,56px);border-top:1px solid var(--line)}
 .pillar{padding:40px clamp(20px,3vw,40px) 8px;display:grid;gap:16px;align-content:start}
 .pillar + .pillar{border-left:1px solid var(--line)}
 .pillar:first-child{padding-left:0}
@@ -117,7 +117,7 @@ footer .todo{opacity:1}
 
 /* Réalisations */
 .tint{background:var(--tint)}
-.works{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(28px,4vw,48px) clamp(20px,3vw,36px);margin-top:clamp(48px,7vw,80px)}
+.works{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(28px,4vw,48px) clamp(20px,3vw,36px);margin-top:clamp(36px,5vw,56px)}
 @media (max-width:900px){.works{grid-template-columns:repeat(2,1fr)}}
 @media (max-width:540px){.works{grid-template-columns:1fr}}
 .work{text-decoration:none;display:grid;gap:16px}
@@ -168,7 +168,7 @@ footer .todo{opacity:1}
 .legal{margin-top:22px;font-size:.84rem;color:var(--muted);font-weight:300;max-width:80ch}
 
 /* Déroulement : frise */
-.timeline{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(20px,4vw,48px);margin-top:clamp(48px,7vw,80px);position:relative}
+.timeline{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(20px,4vw,48px);margin-top:clamp(36px,5vw,56px);position:relative}
 .timeline::before{content:"";position:absolute;left:0;right:0;top:7px;height:1px;background:var(--line)}
 .stage{position:relative;padding-top:40px;display:grid;gap:10px}
 .stage::before{content:"";position:absolute;left:0;top:0;width:15px;height:15px;border-radius:50%;background:var(--bg);border:1px solid var(--green)}
@@ -252,6 +252,7 @@ footer .wrap{border-top:1px solid color-mix(in srgb,var(--green-ink) 22%,transpa
 .topband a:hover{text-decoration:underline}
 @media (max-width:640px){.topband .long{display:none}.topband .short{display:inline}}
 
+@media (max-width:540px){.frame{aspect-ratio:16/9}.work.blank .frame{display:none}}
 .mbar{display:none}
 @media (max-width:760px){
   .mbar{display:grid;grid-template-columns:1fr 1fr;gap:10px;position:fixed;left:0;right:0;bottom:0;z-index:9;background:var(--bg);border-top:1px solid var(--line);
@@ -289,10 +290,10 @@ footer .wrap{border-top:1px solid color-mix(in srgb,var(--green-ink) 22%,transpa
     <div class="wrap">
       <p class="kicker">Sites internet pour commerces et artisans</p>
       <h1>Un site à l'image de <em>votre commerce.</em></h1>
-      <p class="lead">Conçu sur mesure selon vos demandes, puis suivi et entretenu dans la durée. Vous gardez votre temps pour vos clients, je m'occupe du reste.</p>
+      <p class="lead">Conçu sur mesure, puis suivi et entretenu. Vous gardez votre temps pour vos clients.</p>
       <div class="actions">
         <a class="btn btn-fill" href="#contact">Prendre rendez-vous</a>
-        <a class="btn btn-line" href="#realisations">Voir les réalisations</a>
+        <a class="btn btn-line" href="#tarifs">Découvrir les formules</a>
       </div>
       <p class="place">Déplacement autour de Strasbourg</p>
     </div>
@@ -301,24 +302,23 @@ footer .wrap{border-top:1px solid color-mix(in srgb,var(--green-ink) 22%,transpa
   <section id="approche" class="tint">
     <div class="wrap">
       <div class="split-head">
-        <div><p class="kicker">Approche</p><h2 style="margin-top:20px">Un travail sur mesure, et <em>quelqu'un</em> pour s'en occuper ensuite.</h2></div>
-        <p>Votre site ne sort pas d'un catalogue. Il naît d'une conversation au commerce, et il continue d'évoluer avec votre activité une fois en ligne.</p>
+        <div><p class="kicker">Approche</p><h2 style="margin-top:20px">Un site sur mesure, et <em>quelqu'un</em> pour s'en occuper.</h2></div>
       </div>
       <div class="pillars">
         <div class="pillar">
           <p class="em">Sur mesure</p>
-          <h3>Pensé selon vos demandes</h3>
-          <p>Vos couleurs, votre logo, vos mots. Les rubriques dont vous avez besoin, et seulement celles-là : une carte, un formulaire de devis, la commande de vos pâtisseries ou un lien vers vos rendez-vous. Vous validez chaque étape, avec autant de retouches que vous le souhaitez dans le cadre de votre formule.</p>
+          <h3>Selon vos demandes</h3>
+          <p>Vos couleurs, vos mots, les rubriques dont vous avez besoin. Retouches jusqu'à ce qu'il vous plaise.</p>
         </div>
         <div class="pillar">
           <p class="em">Suivi</p>
           <h3>Un interlocuteur qui reste</h3>
-          <p>Après la mise en ligne, je reste joignable par téléphone ou par SMS. Nous faisons régulièrement le point, je vous conseille pour votre fiche Google et vos avis, et le site s'enrichit quand votre activité change.</p>
+          <p>Joignable par téléphone ou SMS, je fais évoluer le site avec votre activité.</p>
         </div>
         <div class="pillar">
           <p class="em">Maintenance</p>
           <h3>Rien de technique à gérer</h3>
-          <p>Hébergement, nom de domaine et connexion sécurisée sont renouvelés pour vous. Le site est sauvegardé et vérifié, et vos horaires, prix ou photos sont mis à jour sous 48 heures ouvrées.</p>
+          <p>Hébergement, nom de domaine et sécurité inclus. Vos changements faits sous 48 heures.</p>
         </div>
       </div>
     </div>
@@ -326,9 +326,7 @@ footer .wrap{border-top:1px solid color-mix(in srgb,var(--green-ink) 22%,transpa
 
   <section class="green center">
     <div class="wrap">
-      <p class="kicker">Engagements</p>
-      <p class="statement">Un seul interlocuteur, du premier rendez-vous <em>aux années qui suivent.</em></p>
-      <div class="promises">
+      <div class="promises" style="margin-top:0;border-top:0">
         <div class="promise"><strong>30 min</strong><span>de votre temps pour démarrer</span></div>
         <div class="promise"><strong>7 jours</strong><span>pour un site d'une page</span></div>
         <div class="promise"><strong>48 h</strong><span>pour chaque mise à jour</span></div>
@@ -341,7 +339,7 @@ footer .wrap{border-top:1px solid color-mix(in srgb,var(--green-ink) 22%,transpa
     <div class="wrap">
       <div class="split-head">
         <div><p class="kicker">Réalisations</p><h2 style="margin-top:20px">Chaque commerce, <em>son</em> site.</h2></div>
-        <p>Couleurs, rubriques et fonctions changent d'un métier à l'autre. Deux exemples de ce qui est possible, à découvrir de préférence sur téléphone.</p>
+        <p>Deux exemples de ce qui est possible, à ouvrir sur téléphone.</p>
       </div>
       <div class="works">
         <a class="work" href="https://claude.ai/artifact/CKVRsGJNUGQG753viUkVRy" target="_blank" rel="noopener">
@@ -361,45 +359,36 @@ footer .wrap{border-top:1px solid color-mix(in srgb,var(--green-ink) 22%,transpa
     </div>
   </section>
 
-  <section class="teaser tint">
-    <div class="wrap teaser-in">
-      <div><p class="kicker">Formules</p><h2 style="margin-top:16px">Une formule <em>pour chaque commerce.</em></h2></div>
-      <div><p>Un site d'une page pour être trouvé facilement, ou un site complet pour présenter toute votre activité. Dans les deux cas, il est conçu sur mesure, puis suivi et entretenu dans la durée.</p><a class="btn btn-line" href="#tarifs" style="margin-top:24px">Découvrir les formules</a></div>
-    </div>
-  </section>
-
-  <section id="deroulement">
+  <section id="deroulement" class="tint">
     <div class="wrap">
       <div class="split-head">
         <div><p class="kicker">Déroulement</p><h2 style="margin-top:20px">De la rencontre <em>à la mise en ligne.</em></h2></div>
-        <p>Trente minutes de votre temps suffisent. Les textes et les photos sont pris en charge.</p>
       </div>
       <div class="timeline">
-        <div class="stage"><span class="d">Premier jour</span><h3>La rencontre</h3><p>Au commerce, nous définissons ensemble le contenu, je prends les photos et nous choisissons votre nom de domaine.</p></div>
-        <div class="stage"><span class="d">Jours 3 à 7</span><h3>La première version</h3><p>Vous la découvrez sur votre téléphone et me dites ce qu'il faut ajuster. Je retouche autant de fois que nécessaire, dans le cadre de la formule choisie, jusqu'à ce que le site vous convienne.</p></div>
-        <div class="stage"><span class="d">Jours 7 à 14</span><h3>La mise en ligne</h3><p>Le site est publié à votre adresse. Le suivi commence.</p></div>
+        <div class="stage"><span class="d">Premier jour</span><h3>La rencontre</h3><p>Au commerce : vos besoins, les photos, le nom de domaine.</p></div>
+        <div class="stage"><span class="d">Jours 3 à 7</span><h3>La première version</h3><p>Vous la regardez sur téléphone, je retouche.</p></div>
+        <div class="stage"><span class="d">Jours 7 à 14</span><h3>La mise en ligne</h3><p>Le site est publié à votre adresse.</p></div>
       </div>
-      <p class="bring">Pour démarrer, il me faut simplement <span>vos horaires, la liste de vos produits ou prestations avec leurs prix, votre logo s'il existe, et les informations de votre entreprise pour les mentions légales.</span></p>
     </div>
   </section>
 
-  <section id="questions" class="tint">
+  <section id="questions">
     <div class="wrap">
-      <div class="center"><p class="kicker">Questions</p><h2 style="margin-top:20px;font-size:clamp(2.2rem,5vw,3.6rem)">Questions <em>fréquentes</em></h2></div>
+      <div class="center"><p class="kicker">Questions</p><h2 style="margin-top:20px;font-size:clamp(2rem,4.4vw,3rem)">Questions <em>fréquentes</em></h2></div>
       <div class="faq faq-one">
-          <details><summary>Dois-je préparer des textes ou des photos ?</summary><p>Ce n'est pas obligatoire : je peux rédiger les textes à partir de notre échange et prendre les photos au commerce. Mais vous pouvez aussi préparer vos propres photos (vos produits, vos réalisations, votre équipe, votre boutique) : c'est l'occasion de mettre en avant exactement ce que vous voulez faire ressortir, pour un site encore plus à votre image. Vous validez ensuite le résultat.</p></details>
-          <details><summary>Combien de retouches sont possibles ?</summary><p>Autant que vous le souhaitez avant la mise en ligne, dans le cadre de la formule choisie : je retouche le site jusqu'à ce qu'il vous convienne, sans supplément. Une page ou une fonction en plus fait l'objet d'un devis.</p></details>
-          <details><summary>Comment demander une modification ?</summary><p>Par SMS ou par e-mail. Avec le suivi, les modifications courantes sont faites sous 48 heures ouvrées.</p></details>
-          <details><summary>Qui est propriétaire du site ?</summary><p>Vous. Le nom de domaine est déposé à votre nom et les fichiers vous sont remis sur demande. Un autre prestataire peut le reprendre à tout moment.</p></details>
+          <details><summary>Dois-je préparer des textes ou des photos ?</summary><p>Ce n'est pas obligatoire : je rédige les textes et je prends les photos au commerce. Vous pouvez aussi fournir vos propres photos pour mettre en avant ce qui compte pour vous.</p></details>
+          <details><summary>Combien de retouches sont possibles ?</summary><p>Autant que vous le souhaitez avant la mise en ligne, dans le cadre de la formule. Une page ou une fonction en plus fait l'objet d'un devis.</p></details>
+          <details><summary>Comment demander une modification ?</summary><p>Par SMS ou par e-mail. Avec le suivi, c'est fait sous 48 heures ouvrées.</p></details>
+          <details><summary>Qui est propriétaire du site ?</summary><p>Vous. Le nom de domaine est à votre nom et les fichiers vous sont remis sur demande.</p></details>
       </div>
     </div>
   </section>
 
-  <section id="contact" class="green center">
+  <section id="contact" class="contact green center">
     <div class="wrap">
       <p class="kicker">Contact</p>
       <h2>Un projet pour <em>votre commerce ?</em></h2>
-      <p class="lead">Appelez-moi pour en discuter. Je viens ensuite vous rencontrer à votre commerce pour comprendre vos besoins et vous montrer ce qui est possible, sans engagement de votre part.</p>
+      <p class="lead">Appelez-moi : je viens vous rencontrer à votre commerce, sans engagement.</p>
       <p class="sign">Raphaël Mata, RM Sites</p>
       <div class="coords">
         <div class="coord"><small>Téléphone</small><span id="tel">06 10 75 06 52</span><a class="btn btn-light call" href="tel:+33610750652">Appeler</a></div>
