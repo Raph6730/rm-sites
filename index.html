@@ -5,6 +5,14 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>RM Sites</title>
 <meta name="description" content="RM Sites conçoit sur mesure les sites internet des commerces et artisans de Strasbourg et des alentours, puis en assure le suivi et la maintenance.">
+<link rel="canonical" href="https://rm-sites.fr/">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:site_name" content="RM Sites">
+<meta property="og:title" content="RM Sites · Sites internet sur mesure pour les commerces">
+<meta property="og:description" content="RM Sites conçoit sur mesure les sites internet des commerces et artisans de Strasbourg et des alentours, puis en assure le suivi et la maintenance.">
+<meta property="og:url" content="https://rm-sites.fr/">
+<meta property="og:image" content="https://rm-sites.fr/logo/rm-sites-logo-fond-blanc.png">
 <meta name="robots" content="noindex, nofollow">
 <meta name="theme-color" content="#1B4535">
 <link rel="icon" href="logo/rm-sites-monogramme.svg" type="image/svg+xml">
@@ -26,17 +34,17 @@ img{max-width:100%}
 /* Layout : maison de qualité — beaucoup d'air, grande serif fine, filets, sections composées différemment ; vert profond en bandeaux, vert pâle en fonds */
 :root{
   --bg:#FBFCFB; --tint:#EEF3EF; --ink:#18221D; --muted:#5E6A63; --line:#D9E1DB;
-  --green:#1B4535; --green-ink:#F4F7F5; --green-soft:#A9C3B4;
-  --gold:#957233; --gold-soft:#D4B46E; --acc2:var(--gold); --acc2-on:var(--gold-soft);
+  --green:#1B4535; --green-text:#1B4535; --green-ink:#F4F7F5; --green-soft:#A9C3B4;
+  --gold:#86672D; --gold-soft:#D4B46E; --acc2:var(--gold); --acc2-on:var(--gold-soft);
   --serif:"Cormorant Garamond","Cormorant",Georgia,"Times New Roman",serif;
   --sans:"Hanken Grotesk",ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;
 }
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
   --bg:#101613; --tint:#16201B; --ink:#E7EDE9; --muted:#9EAAA3; --line:#2A3630;
-  --green:#0F2A20; --green-ink:#E7EFEA; --green-soft:#8DBBA2; --acc2:#D4B46E; --acc2-on:#D4B46E; color-scheme:dark}}
+  --green:#0F2A20; --green-text:#8DBBA2; --green-ink:#E7EFEA; --green-soft:#8DBBA2; --acc2:#D4B46E; --acc2-on:#D4B46E; color-scheme:dark}}
 :root[data-theme="dark"]{
   --bg:#101613; --tint:#16201B; --ink:#E7EDE9; --muted:#9EAAA3; --line:#2A3630;
-  --green:#0F2A20; --green-ink:#E7EFEA; --green-soft:#8DBBA2; --acc2:#D4B46E; --acc2-on:#D4B46E; color-scheme:dark}
+  --green:#0F2A20; --green-text:#8DBBA2; --green-ink:#E7EFEA; --green-soft:#8DBBA2; --acc2:#D4B46E; --acc2-on:#D4B46E; color-scheme:dark}
 
 *{box-sizing:border-box}
 body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-weight:400;font-size:1.0625rem;line-height:1.75;-webkit-font-smoothing:antialiased}
@@ -53,6 +61,7 @@ section{padding-block:clamp(72px,11vw,140px)}
 .center{text-align:center}
 .center .rule{margin-inline:auto}
 .todo{font-style:italic;opacity:.7}
+footer .todo{opacity:1}
 
 /* En-tête */
 .bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:9;background:var(--bg);border-bottom:1px solid var(--line)}
@@ -63,12 +72,12 @@ section{padding-block:clamp(72px,11vw,140px)}
 .bar nav.r{justify-content:flex-end}
 .brand{font-family:var(--serif);font-size:1.7rem;letter-spacing:.32em;text-transform:uppercase;text-decoration:none;padding-left:.32em}
 @media (max-width:860px){.bar .wrap{grid-template-columns:1fr auto}.bar nav.l{display:none}.bar nav.r a:not(.cta-link){display:none}.brand{justify-self:start;padding-left:0;font-size:1.4rem}}
-.cta-link{color:var(--green)!important;border-bottom:1px solid var(--green);padding-bottom:2px}
+.cta-link{color:var(--green-text)!important;border-bottom:1px solid var(--green-text);padding-bottom:2px}
 
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:15px 30px;font-family:var(--sans);font-size:.82rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase;text-decoration:none;border:1px solid var(--green);transition:background .25s,color .25s;cursor:pointer}
 .btn-fill{background:var(--green);color:var(--green-ink)}
-.btn-fill:hover{background:transparent;color:var(--green)}
-.btn-line{background:transparent;color:var(--green)}
+.btn-fill:hover{background:transparent;color:var(--green-text)}
+.btn-line{background:transparent;color:var(--green-text)}
 .btn-line:hover{background:var(--green);color:var(--green-ink)}
 
 /* Accroche */
@@ -113,7 +122,7 @@ section{padding-block:clamp(72px,11vw,140px)}
 @media (max-width:540px){.works{grid-template-columns:1fr}}
 .work{text-decoration:none;display:grid;gap:16px}
 .frame{aspect-ratio:4/3;max-width:100%;background:var(--bg);border:1px solid var(--line);display:flex;align-items:flex-end;justify-content:center;overflow:hidden;padding-top:28px;transition:border-color .3s}
-.work:hover .frame{border-color:var(--green)}
+.work:hover .frame{border-color:var(--green-text)}
 .scr{width:46%;height:100%;background:#FFFFFF;border:1px solid #DDE3DF;border-bottom:0;border-radius:12px 12px 0 0;display:flex;flex-direction:column;overflow:hidden;transition:transform .4s ease}
 .work:hover .scr{transform:translateY(-6px)}
 .scr .hd{height:42%;padding:10px;display:flex;flex-direction:column;justify-content:flex-end;gap:4px}
@@ -178,7 +187,7 @@ section{padding-block:clamp(72px,11vw,140px)}
 details{border-top:1px solid var(--line)}
 summary{cursor:pointer;list-style:none;padding:22px 0;font-family:var(--serif);font-size:1.35rem;line-height:1.3;display:flex;justify-content:space-between;gap:18px}
 summary::-webkit-details-marker{display:none}
-summary::after{content:"+";font-family:var(--sans);font-weight:300;color:var(--green);transition:transform .25s}
+summary::after{content:"+";font-family:var(--sans);font-weight:300;color:var(--green-text);transition:transform .25s}
 details[open] summary::after{transform:rotate(45deg)}
 details p{padding-bottom:22px;color:var(--muted);font-weight:300}
 
@@ -209,7 +218,7 @@ footer .wrap{border-top:1px solid color-mix(in srgb,var(--green-ink) 22%,transpa
 .page-head h1{font-size:clamp(2.6rem,6.6vw,5.2rem);max-width:15ch;margin:28px auto 0}
 .page-head .lead{max-width:54ch;margin:28px auto 0;color:var(--muted);font-weight:300;font-size:1.1rem}
 .page-head .back{margin-top:40px;font-size:.78rem;letter-spacing:.16em;text-transform:uppercase}
-.page-head .back a{color:var(--green);text-decoration:none;border-bottom:1px solid var(--green);padding-bottom:2px}
+.page-head .back a{color:var(--green-text);text-decoration:none;border-bottom:1px solid var(--green-text);padding-bottom:2px}
 .tarifs-body{padding-top:clamp(56px,8vw,96px)}
 .btn-light{background:var(--green-ink);color:var(--green);border-color:var(--green-ink)}
 .btn-light:hover{background:transparent;color:var(--green-ink)}
@@ -225,7 +234,7 @@ footer .wrap{border-top:1px solid color-mix(in srgb,var(--green-ink) 22%,transpa
 .legal-text .updated{font-size:.85rem}
 .legal-text dl{margin:0;display:grid;grid-template-columns:180px 1fr;border-top:1px solid var(--line)}
 .legal-text dt,.legal-text dd{margin:0;padding:12px 0;border-bottom:1px solid var(--line)}
-.legal-text dt{font-size:.76rem;letter-spacing:.14em;text-transform:uppercase;color:var(--green);padding-top:15px}
+.legal-text dt{font-size:.76rem;letter-spacing:.14em;text-transform:uppercase;color:var(--green-text);padding-top:15px}
 .legal-text dd{font-weight:300;min-width:0;overflow-wrap:anywhere}
 @media (max-width:560px){.legal-text dl{grid-template-columns:1fr}.legal-text dt{border-bottom:0;padding-bottom:0}}
 .legal-text .todo{background:color-mix(in srgb,var(--green) 10%,transparent);padding:0 .25em;opacity:1}
@@ -251,9 +260,10 @@ footer .wrap{border-top:1px solid color-mix(in srgb,var(--green-ink) 22%,transpa
 }
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
 </style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "ProfessionalService", "name": "RM Sites", "url": "https://rm-sites.fr/", "logo": "https://rm-sites.fr/logo/rm-sites-logo.png", "image": "https://rm-sites.fr/logo/rm-sites-logo-fond-blanc.png", "description": "Création de sites internet sur mesure pour les commerces et artisans de Strasbourg et de ses alentours.", "founder": {"@type": "Person", "name": "Raphaël Mata"}, "telephone": "+33610750652", "areaServed": {"@type": "City", "name": "Strasbourg"}, "priceRange": "590 € – 990 €", "makesOffer": [{"@type": "Offer", "name": "Formule Essentiel", "price": 590, "priceCurrency": "EUR"}, {"@type": "Offer", "name": "Formule Complet", "price": 990, "priceCurrency": "EUR"}, {"@type": "Offer", "name": "Fiche Google", "price": 150, "priceCurrency": "EUR"}]}</script>
 </head>
 <body>
-<div class="topband">
+<div class="topband" role="region" aria-label="Zone et téléphone">
   <div class="wrap">
     <span class="long">Sites internet sur mesure · Déplacement sur Strasbourg et ses alentours</span><span class="short">Strasbourg et alentours</span>
     <a href="tel:+33610750652">06 10 75 06 52</a>
@@ -452,7 +462,7 @@ footer .wrap{border-top:1px solid color-mix(in srgb,var(--green-ink) 22%,transpa
         <div class="addon"><div class="t"><h3>Sans suivi</h3><span>99 € / an</span></div><p>Domaine et hébergement seuls. Chaque mise à jour est facturée 30 €.</p></div>
       </div>
 
-      <p class="compare">À titre de repère, une agence facture un site vitrine <em>2 000 à 8 000 €</em>, un indépendant <em>500 à 2 500 €</em>, et un site Wix coûte <em>17 à 30 € par mois</em>, plus le temps de le construire soi-même.</p>
+      <p class="compare">À titre de repère, une agence facture un site vitrine <em>2 000 à 8 000 €</em>, un indépendant <em>500 à 2 500 €</em>, et un abonnement à un constructeur de site en ligne coûte <em>17 à 30 € par mois</em>, plus le temps de le construire soi-même.</p>
       <p class="legal">Prix nets, TVA non applicable (art. 293 B du CGI). Règlement en deux fois : 50 % à la commande, 50 % à la mise en ligne. Vente en ligne, réservation intégrée, version multilingue et création de logo sur devis. Repères de prix relevés en octobre 2026.</p>
     </div>
   </section>
@@ -494,18 +504,21 @@ footer .wrap{border-top:1px solid color-mix(in srgb,var(--green-ink) 22%,transpa
       <p>Raphaël Mata.</p>
 
       <h2>Hébergement</h2>
-      <p>Le site est hébergé par IONOS SARL, 7 place de la Gare, BP 70109, 57201 Sarreguemines Cedex, France. Téléphone : 09 70 80 89 11. <span class="todo">À confirmer lors de la mise en ligne.</span></p>
+      <p>Pendant sa préparation, le site est hébergé par GitHub, Inc. (service GitHub Pages), 88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, États-Unis.</p>
+      <p>À sa mise en ligne sur rm-sites.fr, il sera hébergé par IONOS SARL, 7 place de la Gare, BP 70109, 57201 Sarreguemines Cedex, France. Téléphone : 09 70 80 89 11. <span class="todo">À confirmer lors de la mise en ligne, et retirer alors le paragraphe sur GitHub.</span></p>
 
       <h2>Propriété intellectuelle</h2>
       <p>L'ensemble des contenus de ce site (textes, mise en page, éléments graphiques, logo et nom « RM Sites ») est la propriété de Raphaël Mata, sauf mention contraire. Toute reproduction, représentation ou adaptation, totale ou partielle, sans autorisation écrite préalable est interdite.</p>
       <p>Les sites présentés dans la rubrique « Réalisations » sont des sites de démonstration : les commerces, noms, numéros et avis qui y figurent sont fictifs.</p>
 
-      <h2>Données personnelles</h2>
+      <h2 id="confidentialite">Données personnelles</h2>
       <p>Ce site ne comporte aucun formulaire et ne collecte aucune donnée personnelle. Les informations que vous transmettez par téléphone ou par e-mail (nom, coordonnées, informations sur votre commerce) sont utilisées uniquement pour répondre à votre demande et préparer un devis. Elles ne sont ni vendues ni transmises à des tiers, et sont conservées au maximum trois ans après le dernier contact, sauf obligation légale de conservation plus longue (factures, par exemple).</p>
       <p>Conformément au règlement général sur la protection des données (RGPD) et à la loi Informatique et Libertés, vous disposez d'un droit d'accès, de rectification, d'effacement, de limitation et d'opposition au traitement de vos données. Pour l'exercer, contactez Raphaël Mata aux coordonnées ci-dessus. Vous pouvez également introduire une réclamation auprès de la CNIL (cnil.fr).</p>
 
-      <h2>Cookies</h2>
-      <p>Ce site ne dépose aucun cookie et n'utilise aucun outil de mesure d'audience ou de publicité. Aucun bandeau de consentement n'est donc nécessaire.</p>
+      <p>Lors de chaque visite, l'hébergeur du site enregistre dans ses journaux techniques l'adresse IP et des informations sur le navigateur, pour la sécurité et le bon fonctionnement du site (intérêt légitime), pendant une durée limitée qu'il fixe. Pendant la phase de préparation, le site est hébergé par GitHub, Inc. (États-Unis), qui peut traiter ces données aux États-Unis dans le cadre du Data Privacy Framework UE–États-Unis. Les échanges de devis et de factures sont conservés 10 ans (obligation comptable).</p>
+
+      <h2 id="cookies">Cookies</h2>
+      <p>Ce site ne dépose aucun cookie et n'utilise aucun outil de mesure d'audience ou de publicité. Aucun bandeau de consentement n'est donc nécessaire. Les polices de caractères sont hébergées sur le site lui-même.</p>
 
       <h2>Liens externes</h2>
       <p>Ce site peut contenir des liens vers d'autres sites. RM Sites n'exerce aucun contrôle sur leur contenu et ne peut être tenu responsable de celui-ci.</p>
@@ -515,31 +528,96 @@ footer .wrap{border-top:1px solid color-mix(in srgb,var(--green-ink) 22%,transpa
     </div>
   </section>
 </div>
+<div id="v-cgv" hidden>
+  <section class="page-head tint center">
+    <div class="wrap">
+      <p class="kicker">Informations</p>
+      <h1>Conditions générales <em>de vente</em></h1>
+      <p class="back"><a href="#top">Retour à l'accueil</a></p>
+    </div>
+  </section>
+  <section class="legal-body">
+    <div class="wrap legal-text">
+      <p class="updated">Version du <span class="todo">date de mise en ligne</span></p>
+
+      <h2>1. Objet</h2>
+      <p>Les présentes conditions s'appliquent aux prestations de RM Sites (Raphaël Mata, entrepreneur individuel, voir les <a href="#mentions-legales">mentions légales</a>) : conception, réalisation et mise en ligne de sites internet, création de fiches Google, suivi et maintenance. Elles s'adressent aux professionnels (commerçants, artisans, indépendants). Elles sont remises avec chaque devis et prévalent sur tout autre document, sauf accord écrit contraire.</p>
+
+      <h2>2. Devis et commande</h2>
+      <p>Chaque prestation fait l'objet d'un devis détaillé et gratuit, valable 30 jours. La commande est ferme à la signature du devis (mention « bon pour accord ») et au versement de l'acompte. Les formules et options sont décrites sur la page <a href="#tarifs">Formules</a> ; le contenu exact retenu est celui du devis signé.</p>
+
+      <h2>3. Prix et paiement</h2>
+      <p>Les prix sont indiqués en euros, nets : TVA non applicable, article 293 B du Code général des impôts. Règlement par virement : 50 % d'acompte à la commande, 50 % à la mise en ligne. Les abonnements (suivi et maintenance, ou hébergement seul) sont payables <span class="todo">mensuellement ou annuellement, à préciser</span>. Aucun escompte n'est accordé en cas de paiement anticipé.</p>
+      <p>Tout retard de paiement entraîne de plein droit des pénalités égales à trois fois le taux d'intérêt légal, ainsi qu'une indemnité forfaitaire de 40 € pour frais de recouvrement (article L441-10 du Code de commerce). En cas de retard de plus de 30 jours, RM Sites peut suspendre les prestations en cours, y compris l'hébergement, après une mise en demeure restée sans effet pendant 8 jours.</p>
+
+      <h2>4. Droit de rétractation des petites entreprises</h2>
+      <p>Si votre entreprise emploie <b>cinq salariés au plus</b>, que le devis a été signé <b>hors des locaux de RM Sites</b> (par exemple dans votre commerce) et que la création d'un site n'entre pas dans le champ de votre activité principale, vous disposez d'un délai de <b>14 jours</b> à compter de la signature pour vous rétracter, sans avoir à vous justifier (articles L221-3 et L221-18 du Code de la consommation). Il suffit de le signaler par écrit (e-mail ou courrier), par exemple avec le formulaire ci-dessous. L'acompte est alors remboursé dans les 14 jours.</p>
+      <p>Les travaux ne commencent avant la fin de ce délai que si vous le demandez expressément par écrit. Si vous vous rétractez ensuite, seule la part des travaux déjà réalisés vous est facturée, au prorata du prix.</p>
+
+      <h2>5. Éléments fournis par le client</h2>
+      <p>Le client fournit les informations nécessaires (horaires, prestations, prix, coordonnées, éventuels textes, logos et photos). Il garantit qu'il détient les droits sur les éléments qu'il fournit et que les informations sont exactes. Les délais courent à partir de la réception de l'acompte et de l'ensemble de ces éléments.</p>
+
+      <h2>6. Réalisation et délais</h2>
+      <p>Mise en ligne sous 7 jours (formule Essentiel) ou 14 jours (formule Complet) après réception de l'acompte et des éléments. Ces délais sont indicatifs ; un retard dû à l'attente d'éléments ou de validations du client ne peut être reproché à RM Sites.</p>
+
+      <h2>7. Corrections et ajouts</h2>
+      <p>Avant la mise en ligne, les corrections sont illimitées dans le cadre de la formule choisie (mêmes pages et mêmes fonctions). Une page, une fonction ou un contenu supplémentaire fait l'objet d'un devis complémentaire.</p>
+
+      <h2>8. Mise en ligne et réception</h2>
+      <p>Le client valide le site avant sa mise en ligne. La mise en ligne vaut réception de la prestation et rend le solde exigible. Le nom de domaine est enregistré <b>au nom du client</b>.</p>
+
+      <h2>9. Propriété du site</h2>
+      <p>Après paiement intégral, le client devient propriétaire de son site : RM Sites lui cède, pour la durée légale des droits d'auteur et pour le monde entier, les droits de reproduction, de représentation et d'adaptation sur les textes, la mise en page et les éléments graphiques créés pour lui. Jusqu'au paiement complet, ces éléments restent la propriété de RM Sites. Sauf refus écrit du client, RM Sites peut citer le site parmi ses réalisations.</p>
+
+      <h2>10. Suivi et maintenance</h2>
+      <p><b>Suivi et maintenance (19 € par mois)</b> : nom de domaine, hébergement sécurisé, sauvegardes, vérifications et jusqu'à trois mises à jour par mois. Engagement de douze mois, puis <span class="todo">reconduction mois par mois, résiliable avec un mois de préavis : à confirmer</span>. <b>Sans suivi (99 € par an)</b> : nom de domaine et hébergement seuls ; chaque mise à jour est facturée 30 €. En cas de résiliation, RM Sites remet au client les fichiers de son site et l'aide à transférer son nom de domaine.</p>
+
+      <h2>11. Hébergement et responsabilité</h2>
+      <p>RM Sites s'engage à mettre en œuvre les moyens nécessaires au bon fonctionnement du site (obligation de moyens). L'hébergement est confié à un prestataire spécialisé ; une interruption de son fait ne peut engager la responsabilité de RM Sites. Le client reste responsable du contenu publié sur son site et de l'exactitude des informations qu'il fournit. La responsabilité de RM Sites est limitée au montant payé pour la prestation concernée.</p>
+
+      <h2>12. Données personnelles</h2>
+      <p>Pour les données des visiteurs du site du client (par exemple celles d'un formulaire de contact), le client est responsable du traitement et RM Sites agit en sous-traitant (article 28 du RGPD) : RM Sites ne traite ces données que pour héberger et maintenir le site, selon les instructions du client, assure leur confidentialité et leur sécurité, n'a recours qu'à des hébergeurs offrant des garanties suffisantes, informe le client de toute violation de données dans les meilleurs délais, et lui restitue ou supprime les données à la fin du contrat. Les données du client lui-même sont traitées comme indiqué dans les <a href="#mentions-legales">mentions légales</a>.</p>
+
+      <h2>13. Litiges</h2>
+      <p>Les présentes conditions sont soumises au droit français. En cas de difficulté, les parties recherchent d'abord une solution amiable. À défaut, le litige est porté devant <span class="todo">le tribunal compétent : à confirmer avec un conseil</span>.</p>
+
+      <h2 id="formulaire-retractation">Formulaire de rétractation</h2>
+      <p>(À remplir et renvoyer uniquement si vous souhaitez vous rétracter, voir l'article 4.)</p>
+      <p>À l'attention de RM Sites, Raphaël Mata, <span class="todo">adresse</span>, <span class="todo">e-mail</span> :<br>
+      Je vous notifie par la présente ma rétractation du contrat portant sur la prestation ci-dessous :<br>
+      Devis n° : ……… · signé le : ………<br>
+      Nom de l'entreprise : ………<br>
+      Adresse : ………<br>
+      Date et signature : ………</p>
+    </div>
+  </section>
+</div>
 </main>
 
 <footer>
   <div class="wrap">
     <span>© 2026 RM Sites · Raphaël Mata</span>
-    <span>Micro-entreprise · SIRET <span class="todo">à compléter</span> · <a href="#mentions-legales" style="color:inherit">Mentions légales</a></span>
+    <span>Micro-entreprise · SIRET <span class="todo">à compléter</span> · <a href="#mentions-legales" style="color:inherit">Mentions légales</a> · <a href="#confidentialite" style="color:inherit">Confidentialité</a> · <a href="#cgv" style="color:inherit">CGV</a></span>
   </div>
 </footer>
 
-<div class="mbar">
+<nav class="mbar" aria-label="Accès rapide">
   <a class="btn btn-fill" href="#contact">Rendez-vous</a>
   <a class="btn btn-line" href="#tarifs">Formules</a>
-</div>
+</nav>
 
 <script>
 (function(){
-  var home=document.getElementById('v-home'), tarifs=document.getElementById('v-tarifs'), legal=document.getElementById('v-mentions');
+  var home=document.getElementById('v-home'), tarifs=document.getElementById('v-tarifs'), legal=document.getElementById('v-mentions'), cgv=document.getElementById('v-cgv');
   var navT=document.querySelectorAll('a[href="#tarifs"]');
   function route(scroll){
     var h=location.hash.replace('#','');
-    var onT=h==='tarifs', onL=h==='mentions-legales';
-    home.hidden=onT||onL; tarifs.hidden=!onT; legal.hidden=!onL;
+    var onT=h==='tarifs', onL=h==='mentions-legales'||h==='confidentialite', onC=h==='cgv'||h==='formulaire-retractation';
+    home.hidden=onT||onL||onC; tarifs.hidden=!onT; legal.hidden=!onL; cgv.hidden=!onC;
     navT.forEach(function(a){ if(a.closest('nav')){ if(onT){a.setAttribute('aria-current','page')}else{a.removeAttribute('aria-current')} } });
     if(onT){ window.scrollTo(0,0); document.title='Formules · RM Sites'; }
-    else if(onL){ window.scrollTo(0,0); document.title='Mentions légales · RM Sites'; }
+    else if(onL||onC){ document.title=onC?'Conditions générales de vente · RM Sites':'Mentions légales · RM Sites';
+      var a=(h==='confidentialite'||h==='formulaire-retractation')?document.getElementById(h):null; if(a){ a.scrollIntoView(); } else { window.scrollTo(0,0); } }
     else { document.title='RM Sites';
       var t=h&&h!=='top'?document.getElementById(h):null;
       if(scroll){ if(t){ t.scrollIntoView(); } else { window.scrollTo(0,0); } }

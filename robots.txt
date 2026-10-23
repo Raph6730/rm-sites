@@ -1,2 +1,8 @@
+# AVANT LA MISE EN LIGNE OFFICIELLE (micro-entreprise pas encore créée) : on demande aux robots de ne rien explorer.
 User-agent: *
 Disallow: /
+
+# À LA MISE EN LIGNE sur rm-sites.fr : remplacer tout ce qui précède par
+# User-agent: *
+# Allow: /
+# Sitemap: https://rm-sites.fr/sitemap.xml
