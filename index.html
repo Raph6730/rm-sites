@@ -253,6 +253,17 @@ footer .wrap{border-top:1px solid color-mix(in srgb,var(--green-ink) 22%,transpa
 @media (max-width:640px){.topband .long{display:none}.topband .short{display:inline}}
 
 @media (max-width:540px){.frame{aspect-ratio:16/9}.work.blank .frame{display:none}}
+/* Qui suis-je */
+.about{display:grid;grid-template-columns:minmax(0,320px) minmax(0,1fr);gap:clamp(32px,6vw,80px);align-items:center}
+.about-photo{margin:0;position:relative;aspect-ratio:4/5;max-width:100%;border-radius:999px 999px 6px 6px;overflow:hidden;background:var(--bg);border:1px solid var(--line);display:grid;place-items:center}
+.about-photo .about-ph{width:42%;height:auto;opacity:.9}
+.about-photo .about-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.about-text{display:grid;gap:18px;max-width:60ch;min-width:0}
+.about-text h2{font-size:clamp(2rem,4.4vw,3.2rem);margin-top:4px}
+.about-text p:not(.kicker):not(.sign-about){color:var(--muted);font-weight:300}
+.sign-about{font-family:var(--serif);font-style:italic;font-size:1.5rem;color:var(--acc2)}
+@media (max-width:760px){.about{grid-template-columns:1fr}.about-photo{width:min(240px,70%);justify-self:center}}
+
 .mbar{display:none}
 @media (max-width:760px){
   .mbar{display:grid;grid-template-columns:1fr 1fr;gap:10px;position:fixed;left:0;right:0;bottom:0;z-index:9;background:var(--bg);border-top:1px solid var(--line);
@@ -379,6 +390,22 @@ footer .wrap{border-top:1px solid color-mix(in srgb,var(--green-ink) 22%,transpa
           <details><summary>Combien de retouches sont possibles ?</summary><p>Autant que vous le souhaitez avant la mise en ligne, dans le cadre de la formule. Une page ou une fonction en plus fait l'objet d'un devis.</p></details>
           <details><summary>Comment demander une modification ?</summary><p>Par SMS ou par e-mail. Avec le suivi, c'est fait sous 48 heures ouvrées.</p></details>
           <details><summary>Qui est propriétaire du site ?</summary><p>Vous. Le nom de domaine est à votre nom et les fichiers vous sont remis sur demande.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <section id="apropos" class="tint">
+    <div class="wrap about">
+      <figure class="about-photo">
+        <img src="logo/rm-sites-monogramme.svg" alt="" class="about-ph" aria-hidden="true">
+        <img src="photo-raphael.jpg" alt="Raphaël Mata, fondateur de RM Sites" class="about-img" onerror="this.remove()">
+      </figure>
+      <div class="about-text">
+        <p class="kicker">Qui suis-je</p>
+        <h2>Raphaël Mata, <em>à votre écoute.</em></h2>
+        <p>Étudiant en école de commerce et directeur adjoint en alternance, je sais ce que demande la gestion d'une équipe et de ses clients au quotidien : le temps manque toujours.</p>
+        <p>J'ai créé RM Sites pour offrir aux commerçants et artisans de la région un site soigné, sans jargon, avec une personne joignable derrière, qui vient vous voir et reste disponible une fois le site en ligne.</p>
+        <p class="sign-about">Raphaël Mata</p>
       </div>
     </div>
   </section>
