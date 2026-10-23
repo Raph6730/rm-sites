@@ -1,6 +1,6 @@
 # RM Sites
 
-Page de présentation de RM Sites (Raphaël Mata) : création de sites internet sur mesure pour les commerces et artisans de Strasbourg et ses alentours.
+Page de présentation de RM Sites (Raphaël Mata) : création de sites internet sur mesure pour les commerces et artisans de Strasbourg et jusqu'à 30 km autour.
 
 - `index.html` : la page (accueil, `#tarifs` pour les formules, `#mentions-legales`, `#confidentialite`, `#cgv`).
 - `devis.html` : modèle de devis à remplir (outil interne).
